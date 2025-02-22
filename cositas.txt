@@ -1,0 +1,24 @@
+const nombre_tarjeta = document.getElementById('nombre_tarjeta')
+const pagar = document.getElementById("pagar")
+const div = document.getElementById('mensaje_error')
+if(pagar){ 
+    const mensaje_existente = document.querySelector('p')
+    pagar.addEventListener('click', ()=>{
+        if(nombre_tarjeta.value.trim() === ""){
+            if (!div.querySelector("p")) { // Evita agregar el mensaje varias veces
+                const mensaje_error = document.createElement('p')
+                mensaje_error.textContent = "El campo nombre es obligatorio"
+                mensaje_error.style.color = "red"  
+                div.append(mensaje_error);
+            }else{
+                if(mensaje_existente){
+                    mensaje_existente.remove()
+                }
+            }
+            
+            
+        }
+    })
+}else{
+    console.log('no se encuentra el boton de pagar')
+}
