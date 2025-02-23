@@ -33,6 +33,12 @@ label {
     text-align: left;
 }
 
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .input-icon {
     display: flex;
     align-items: center;
@@ -40,6 +46,7 @@ label {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
+    flex: 1;
 }
 
 .input-icon i {
@@ -54,8 +61,12 @@ input {
     font-size: 16px;
 }
 
-input:focus {
-    border-bottom: 2px solid #007bff;
+.cvv-input {
+    width: 50px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
 }
 
 button {

@@ -13,9 +13,12 @@
         <div id="mensaje_error"></div>
         <form action="app.html">
             <label for="numeros">Número de la Tarjeta</label>
-            <div class="input-icon">
-                <i class="fas fa-credit-card"></i>
-                <input type="text" id="numeros" placeholder="1234 5678 9012 3456" maxlength="19">
+            <div class="input-group">
+                <div class="input-icon">
+                    <i class="fas fa-credit-card"></i>
+                    <input type="text" id="numeros" placeholder="1234 5678 9012 3456" maxlength="19">
+                </div>
+                <input type="password" id="codigo_seguridad" placeholder="CVV" maxlength="4" class="cvv-input">
             </div>
             
             <label for="fecha_vencimiento">Fecha de Vencimiento</label>
