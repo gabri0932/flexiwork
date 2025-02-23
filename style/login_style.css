@@ -18,27 +18,37 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
+img {
+    align-items: center;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    margin: 1px;
+
+}
 
 h2 {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin: 12px;
     display: flex;
     justify-content: center;  
     align-items: center;  
     }
 
-input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-}
+    input {
+        width: calc(100% - 24px); /* Resta los márgenes para mantener el tamaño correcto */
+        padding: 14px;
+        margin: 12px; /* Márgenes uniformes en todos los lados */
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+        box-sizing: border-box; /* Evita que el padding afecte el tamaño */
+    }    
 
 button {
-    width: 100%;
+    width: calc(100% - 24px);
     padding: 12px;
     background-color: #004AAD; /* Azul del logo */
     color: white;
