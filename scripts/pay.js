@@ -40,7 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
             mensajeError.style.display = "block";
         } else {
             mensajeError.style.display = "none";
-            console.log("Pago procesado correctamente.");
+            alert("Pago procesado correctamente.");
+            
         }
     });
 });
