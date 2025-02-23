@@ -3,20 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pago Seguro</title>
     <link rel="stylesheet" href="../../style/pay.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="mensaje_error"></div>
-    <form action="">
-        <label for="">Numero de la tarjeta</label>
-            <input type="text" id="numeros">
-        <label for="" id="f_vencimiento">Fecha de vencimiento</label>
-            <input type="month" name="" id="" min="2025-03">
-        <label for="nombre_tarjeta">Nombre de la tarjeta</label>
-            <input type="text" id="nombre_tarjeta">
+    <div class="payment-container">
+        <h2>Detalles de Pago</h2>
+        <div id="mensaje_error"></div>
+        <form action="app.html">
+            <label for="numeros">Número de la Tarjeta</label>
+            <div class="input-icon">
+                <i class="fas fa-credit-card"></i>
+                <input type="text" id="numeros" placeholder="1234 5678 9012 3456" maxlength="19">
+            </div>
+            
+            <label for="fecha_vencimiento">Fecha de Vencimiento</label>
+            <input type="month" id="fecha_vencimiento" >
+            
+            <label for="nombre_tarjeta">Nombre del Titular</label>
+            <div class="input-icon">
+                <i class="fas fa-user"></i>
+                <input type="text" id="nombre_tarjeta" placeholder="Nombre Completo">
+            </div>
+            
             <button id="pagar" type="button">Pagar</button>
-    </form>
+        </form>
+    </div>
     <script src="../../scripts/pay.js"></script>
 </body>
 </html>
