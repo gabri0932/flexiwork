@@ -33,6 +33,30 @@ header img:hover {
     transform: scale(1.1);
 }
 
+header div form {
+    display: flex;
+    align-items: center;
+}
+header div button {
+    background-color: #004AAD;
+    border: none;
+    padding: 8px 12px;
+    margin-left: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: white;
+}
+header div button:hover {
+    background-color: #003b8c;
+}
+.search-input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px;
+  }
+  
 /* Barra de búsqueda */
 .search-bar {
     position: relative;
