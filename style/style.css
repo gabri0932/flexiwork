@@ -208,6 +208,95 @@ nav ul li a:hover {
     font-size: 1rem;
 }
 
+#Register{
+background-image: url(../img/Fondo-Section-Login.jpg) ;
+background-repeat: no-repeat;
+background-size: cover;
+}
+/* Centrar la sección en la pantalla */
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Contenedor flexible para el contenido */
+.seccion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* Espacio entre el div y la imagen */
+    padding: 20px;
+}
+
+/* Caja con fondo semitransparente */
+.caja {
+    background: rgba(0, 56, 168, 0.85); /* Azul con transparencia */
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    width: 400px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Títulos */
+.caja h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* Texto */
+.caja p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Botón */
+.caja button {
+    background-color: #004AAD;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.caja button:hover {
+    background-color: #003080;
+}
+
+/* Enlace */
+.caja a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.caja a:hover {
+    text-decoration: underline;
+}
+.boton1 {
+    background: linear-gradient(45deg, #004aad, #002855); /* Azul degradado */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+/* Imagen */
+.img {
+    width: 600px; /* Ajusta el tamaño según necesites */
+
+}
     #Servicios {
         text-align: center;
         padding: 50px 20px;
@@ -356,3 +445,8 @@ nav ul li a:hover {
         opacity: 0.8;
     }
         
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif
+}
