@@ -63,7 +63,9 @@ header div button:hover {
     display: flex;
     align-items: center;
 }
-
+.flexiwork{
+    border-radius: 10px;
+}
 .search-bar input {
     width: 250px;
     padding: 10px;
@@ -108,8 +110,8 @@ nav ul li a {
     font-size: 16px;
     padding: 10px 20px;
     border-radius: 8px;
-    background-color: #004AAD;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    transition: all 0.3s ease-in-out;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
     display: inline-block;
     white-space: nowrap;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
