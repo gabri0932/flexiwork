@@ -1,0 +1,102 @@
+<style>
+footer {
+    background: #1a1a1a; /* Fondo oscuro elegante */
+    color: #ffffff; /* Texto blanco */
+    padding: 40px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    border-top: 5px solid #004aad; /* Línea decorativa superior */
+}
+
+footer .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer img.flexiwork {
+    width: 160px;
+    filter: brightness(1.2); /* Mejora la visibilidad del logo en fondo oscuro */
+}
+
+footer .info-contacto {
+    text-align: left;
+    font-size: 14px;
+}
+
+footer .info-contacto p {
+    margin: 5px 0;
+}
+
+footer .RedesSociales {
+    display: flex;
+    gap: 15px;
+}
+
+footer .RedesSociales i {
+    font-size: 24px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+footer .RedesSociales i:hover {
+    transform: scale(1.2);
+    color: #004aad; /* Color corporativo */
+}
+
+/* Separador elegante */
+footer .separator {
+    width: 90%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 20px auto;
+}
+
+/* Derechos reservados */
+footer .copyright {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .info-contacto {
+        text-align: center;
+        margin-top: 15px;
+    }
+}
+
+</style>
+
+<footer id="Contacto">
+    <img src="img/Logo FlexiWork ultimo.png" class="flexiwork">
+    <h3>©Todos los derechos reservados 2025</h3>
+    <div class="info-contacto">
+        <p><strong>Email:</strong> contacto@flexiwork.com</p>
+        <p><strong>Teléfono:</strong> +123 456 7890</p>
+    </div>
+
+    <div class="RedesSociales">
+        <i class='bx bxl-instagram'></i>
+        <i class='bx bxl-facebook-circle'></i>
+        <i class='bx bxl-twitter'></i>
+    </div>
+</footer>

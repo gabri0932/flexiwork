@@ -12,7 +12,7 @@ header {
     left: 0;
     z-index: 1000;
     box-sizing: border-box;
-    border-bottom: 3px solid #004AAD;
+    border: 1px solid grey;
 }
 
 /* Contenedor del logo y barra de búsqueda */
@@ -363,7 +363,7 @@ background-size: cover;
         background-color: #f8f9fa;
     }    
     footer {
-        background-color: #003366; /* Azul oscuro */
+        background: linear-gradient(45deg, #004aad, #002855);
         color: white;
         text-align: center;
         padding: 30px 20px;
@@ -405,6 +405,7 @@ background-size: cover;
         opacity: 0.8;
     }
     footer {
+        border-top: 1px solid grey;
         background-color: #003366; /* Azul oscuro */
         color: white;
         display: flex;
