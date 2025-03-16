@@ -8,75 +8,100 @@ body {
 
 
 
-/* Estilo del Header Mejorado - Versión Minimalista */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 5%;
-    background: #ffffff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.03);
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
     box-sizing: border-box;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f5f5f5;
 }
 
 /* Contenedor del logo y barra de búsqueda */
 .header-left {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 /* Logo */
 header img {
-    height: 50px;
+    height: 45px;
     transition: all 0.3s ease;
 }
 
 header img:hover {
-    transform: scale(1.03);
-}
-
-/* Barra de búsqueda refinada */
-.search-bar {
-    position: relative;
-    display: flex;
-    align-items: center;
+    transform: scale(1.02);
 }
 
 .flexiwork {
     border-radius: 8px;
 }
 
+/* Barra de búsqueda mejorada */
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    color: #888;
+    font-size: 18px;
+    pointer-events: none;
+    transition: color 0.3s ease;
+    z-index: 2;
+}
+
 .search-input {
-    width: 250px;
+    width: 280px;
     padding: 10px 15px 10px 40px;
-    border: 1px solid #e0e0e0;
-    border-radius: 25px;
-    font-size: 15px;
+    border: 1px solid #eaeaea;
+    border-radius: 30px;
+    font-size: 14px;
+    color: #555;
     outline: none;
     transition: all 0.3s ease;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23004AAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>');
-    background-repeat: no-repeat;
-    background-position: 12px center;
+    background-color: #f9f9f9;
+}
+
+.search-input::placeholder {
+    color: #aaa;
+    font-size: 14px;
 }
 
 .search-input:focus {
-    width: 280px;
-    box-shadow: 0 0 8px rgba(0, 74, 173, 0.15);
-    border-color: #004AAD;
+    width: 320px;
+    background-color: #fff;
+    border-color: #0056b3;
+    box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.1);
+}
+
+.search-input:focus + .search-icon,
+.search-bar:hover .search-icon {
+    color: #0056b3;
 }
 
 /* Navegación minimalista y elegante */
+nav {
+    display: flex;
+    align-items: center;
+}
+
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 35px;
     margin: 0;
     padding: 0;
 }
@@ -90,9 +115,10 @@ nav ul li a {
     color: #333;
     font-weight: 500;
     font-size: 15px;
-    padding: 5px 0;
+    padding: 8px 0;
     transition: all 0.3s ease;
     position: relative;
+    letter-spacing: 0.2px;
 }
 
 nav ul li a::after {
@@ -100,7 +126,7 @@ nav ul li a::after {
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: -2px;
+    bottom: 0;
     left: 0;
     background-color: #004AAD;
     transition: width 0.3s ease;
@@ -114,39 +140,116 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
-/* Estilos especiales para el botón de iniciar sesión */
-nav ul li:last-child a {
+/* Estilos para el botón de iniciar sesión */
+.login-btn a {
     color: #004AAD;
     font-weight: 600;
 }
 
-/* Responsive para header minimalista */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 10px;
-    }
+.login-btn a:hover {
+    opacity: 0.85;
+}
 
-    .header-left {
-        flex-direction: column;
-        gap: 15px;
-        margin-bottom: 15px;
-    }
+/* Toggle para menú móvil */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #004AAD;
+}
 
+/* Responsive mejorado */
+@media (max-width: 992px) {
     .search-input {
         width: 220px;
     }
-
+    
+    .search-input:focus {
+        width: 260px;
+    }
+    
     nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 12px 4%;
+    }
+    
+    .header-left {
+        gap: 15px;
+    }
+    
+    .search-bar {
+        display: none;
+    }
+    
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+        gap: 15px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    
+    nav ul.active {
+        display: flex;
+    }
+    
+    .menu-toggle {
+        display: block;
     }
     
     nav ul li a {
-        font-size: 14px;
+        display: block;
+        padding: 12px 0;
+    }
+    
+    nav ul li a::after {
+        display: none;
     }
 }
+
+/* Ajustes adicionales para otras secciones */
+
+/* Ajustar márgenes de la sección Inicio para compensar el header fijo */
+#Inicio {
+    padding-top: 80px;
+}
+
+/* Mejoras en la sección de servicios */
+.servicio {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.servicio:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Mejoras en los botones CTA */
+.boton-cta {
+    border-radius: 30px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.boton-cta:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
 
 /* Sección de inicio mejorada */
 #Inicio {
