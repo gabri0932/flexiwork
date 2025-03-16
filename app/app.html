@@ -1,47 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/app.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <title>FlexiWork Customer</title>
+    <title>App/Flexiwork</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/app.css">
 </head>
 <body>
-    <header>
-        <div class="header-left">
-            <img src="../img/Logo FlexiWork ultimo.png" alt="Logo FlexiWork" class="Logo">
-            <div class="search-bar"> 
-                <form action="">
-                    <input type="text" placeholder="Buscar servicios..." class="search-input">
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-            </div>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../img/Logo FlexiWork ultimo.png" alt="Logo FlexiWork" class="Logo" height="50px" width="50px">
         </div>
-        <div>
-            <a href=""><img src="../img/LoginUser.png" alt="" class="perfil-img"></a>
-            <h6>Mi Perfil</h6>
+        <div class="nav-links">
+            <a href="#">Inicio</a>
+            <a href="#">Freelancers</a>
+            <a href="#">Proyectos</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Contáctanos</a>
         </div>
-    </header>
-
-    <div class="container">
-        <a href="">Inicio</a>
-    </div>
-    <div class="container">
-        <a href="">Servicios</a>
-    </div>
-    <div class="container">
-        
-        <a href="">Nosotros</a>
-        
-    <div class="resultado">
-                <img src="../img/LoginUser.png" alt="">
-                <h4>Nombre</h4>
-                <p>Profesión Desarrollador de Paginas Web</p>
-                <p class="Precio">Precio</p>
-                <button class="Contratar">Contrar</button>
-    </div>
-    </div>
+        <div class="profile-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </div>
+    </nav>
     
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="search-box">
+                <input type="text" placeholder="Buscar freelancers...">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="sidebar-box">
+                <h3>Rango de Precio</h3>
+                <div class="price-range">
+                    <input type="range" min="0" max="100" value="20" class="price-slider">
+                    <div class="price-display">
+                        <span>Min: $20/hr</span>
+                        
+                    </div>
+                    <input type="range" min="0" max="100" value="20" class="price-slider">
+                    <div class="price-display">
+                        <span>Max: $100/hr</span>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="sidebar-box">
+                <h3>Servicios</h3>
+                <div class="dropdown">
+                    <select>
+                        <option value="">Todos los servicios</option>
+                        <option value="web">Diseño Web</option>
+                        <option value="app">Desarrollo de Apps</option>
+                        <option value="design">Diseño Gráfico</option>
+                        <option value="marketing">Marketing Digital</option>
+                        <option value="seo">SEO</option>
+                        <option value="content">Creación de Contenido</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="sidebar-box">
+                <h3>Tecnologías</h3>
+                <div class="dropdown">
+                    <select>
+                        <option value="">Todas las tecnologías</option>
+                        <option value="react">React</option>
+                        <option value="angular">Angular</option>
+                        <option value="vue">Vue.js</option>
+                        <option value="node">Node.js</option>
+                        <option value="python">Python</option>
+                        <option value="django">Django</option>
+                        <option value="laravel">Laravel</option>
+                        <option value="wordpress">WordPress</option>
+                    </select>
+                </div>
+            </div>
+            
+            
+        </aside>
+        
+        <main class="content">
+            <div class="profiles-grid">
+                <!-- Profile 1 -->
+                <div class="profile-card">
+                    <div class="profile-header">Profile</div>
+                    <div class="price-tag">$45/hr</div>
+                    <div class="profile-body">
+                        <div class="profile-img">P</div>
+                        <div class="profile-name">Ana García</div>
+                        <div class="profile-title">Diseñadora UI/UX</div>
+                        <div class="profile-actions">
+                            <button class="profile-button">Ver perfil</button>
+                            <button class="profile-button hire-button">Contratar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Profile 2 -->
+                <div class="profile-card">
+                    <div class="profile-header">Profile</div>
+                    <div class="price-tag">$55/hr</div>
+                    <div class="profile-body">
+                        <div class="profile-img">P</div>
+                        <div class="profile-name">Carlos Ruiz</div>
+                        <div class="profile-title">Desarrollador Frontend</div>
+                        <div class="profile-actions">
+                            <button class="profile-button">Ver perfil</button>
+                            <button class="profile-button hire-button">Contratar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Profile 3 -->
+                <div class="profile-card">
+                    <div class="profile-header">Profile</div>
+                    <div class="price-tag">$65/hr</div>
+                    <div class="profile-body">
+                        <div class="profile-img">P</div>
+                        <div class="profile-name">Elena Torres</div>
+                        <div class="profile-title">Desarrolladora Backend</div>
+                        <div class="profile-actions">
+                            <button class="profile-button">Ver perfil</button>
+                            <button class="profile-button hire-button">Contratar</button>
+                        </div>
+                    </div>
+                </div>
+        </main>
+    </div>
 </body>
 </html>
