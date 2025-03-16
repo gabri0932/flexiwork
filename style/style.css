@@ -6,21 +6,23 @@ body {
     line-height: 1.6;
 }
 
-/* Estilo del Header Mejorado */
+
+
+/* Estilo del Header Mejorado - Versión Minimalista */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 5%;
-    background: linear-gradient(to right, #f8f9fa, #e9ecef);
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
     box-sizing: border-box;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 /* Contenedor del logo y barra de búsqueda */
@@ -32,16 +34,15 @@ header {
 
 /* Logo */
 header img {
-    height: 60px;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.15));
+    height: 50px;
+    transition: all 0.3s ease;
 }
 
 header img:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
-/* Barra de búsqueda mejorada */
+/* Barra de búsqueda refinada */
 .search-bar {
     position: relative;
     display: flex;
@@ -49,17 +50,17 @@ header img:hover {
 }
 
 .flexiwork {
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .search-input {
     width: 250px;
     padding: 10px 15px 10px 40px;
-    border: 1.5px solid #004AAD;
+    border: 1px solid #e0e0e0;
     border-radius: 25px;
     font-size: 15px;
     outline: none;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.3s ease;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23004AAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>');
     background-repeat: no-repeat;
     background-position: 12px center;
@@ -67,15 +68,15 @@ header img:hover {
 
 .search-input:focus {
     width: 280px;
-    box-shadow: 0 0 8px rgba(0, 74, 173, 0.3);
-    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 74, 173, 0.15);
+    border-color: #004AAD;
 }
 
-/* Navegación mejorada */
+/* Navegación minimalista y elegante */
 nav ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
@@ -86,23 +87,65 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #004AAD;
-    font-weight: 600;
+    color: #333;
+    font-weight: 500;
     font-size: 15px;
-    padding: 8px 16px;
-    border-radius: 6px;
+    padding: 5px 0;
     transition: all 0.3s ease;
-    background: transparent;
-    border: 2px solid #004AAD;
-    display: inline-block;
-    white-space: nowrap;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #004AAD;
+    transition: width 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: #004AAD;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 74, 173, 0.2);
+    color: #004AAD;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Estilos especiales para el botón de iniciar sesión */
+nav ul li:last-child a {
+    color: #004AAD;
+    font-weight: 600;
+}
+
+/* Responsive para header minimalista */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .header-left {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .search-input {
+        width: 220px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    nav ul li a {
+        font-size: 14px;
+    }
 }
 
 /* Sección de inicio mejorada */
