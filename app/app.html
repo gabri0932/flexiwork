@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App/Flexiwork</title>
+    <title>FlexiWork - Encuentra a los mejores freelancers</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style/app.css">
+    <link rel="stylesheet" href="style/app.css ">
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">
-            <img src="../img/Logo FlexiWork ultimo.png" alt="Logo FlexiWork" class="Logo" height="50px" width="50px">
+        <div class="logo-container">
+            <img src="../img/Logo FlexiWork ultimo.png" alt="Logo FlexiWork" class="logo-img">
         </div>
         <div class="nav-links">
-            <a href="#">Inicio</a>
+            <a href="app.html" class="active">Inicio</a>
             <a href="#">Freelancers</a>
             <a href="#">Proyectos</a>
-            <a href="#">Nosotros</a>
-            <a href="#">Contáctanos</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contactanos.html">Contáctanos</a>
         </div>
         <div class="profile-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -31,7 +33,7 @@
         <aside class="sidebar">
             <div class="search-box">
                 <input type="text" placeholder="Buscar freelancers...">
-                <button>
+                <button class="search-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8"></circle>
                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -42,16 +44,17 @@
             <div class="sidebar-box">
                 <h3>Rango de Precio</h3>
                 <div class="price-range">
-                    <input type="range" min="0" max="100" value="20" class="price-slider">
+                    <label class="price-label">Precio Mínimo</label>
+                    <input type="range" min="0" max="100" value="20" class="price-slider" id="min-price">
                     <div class="price-display">
-                        <span>Min: $20/hr</span>
-                        
-                    </div>
-                    <input type="range" min="0" max="100" value="20" class="price-slider">
-                    <div class="price-display">
-                        <span>Max: $100/hr</span>
+                        <span id="min-price-display">Min: $20/hr</span>
                     </div>
                     
+                    <label class="price-label">Precio Máximo</label>
+                    <input type="range" min="0" max="200" value="100" class="price-slider" id="max-price">
+                    <div class="price-display">
+                        <span id="max-price-display">Max: $100/hr</span>
+                    </div>
                 </div>
             </div>
             
@@ -86,57 +89,94 @@
                     </select>
                 </div>
             </div>
-            
-            
         </aside>
         
         <main class="content">
+            <div class="section-header">
+                <h1 class="section-title">Freelancers Destacados</h1>
+                <p class="section-subtitle">Encuentra el profesional perfecto para tu proyecto</p>
+            </div>
+            
             <div class="profiles-grid">
                 <!-- Profile 1 -->
                 <div class="profile-card">
-                    <div class="profile-header">Profile</div>
+                    <div class="profile-header"></div>
                     <div class="price-tag">$45/hr</div>
                     <div class="profile-body">
-                        <div class="profile-img">P</div>
+                        <div class="profile-img">
+                            <span>AG</span>
+                        </div>
                         <div class="profile-name">Ana García</div>
                         <div class="profile-title">Diseñadora UI/UX</div>
+                        
+                        <div class="skills-container">
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Adobe XD</span>
+                            <span class="skill-tag">UI/UX</span>
+                        </div>
                         <div class="profile-actions">
                             <button class="profile-button">Ver perfil</button>
-                            <button class="profile-button hire-button">Contratar</button>
+                            <a href="pay.html" class="profile-button hire-button">Contratar</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Profile 2 -->
                 <div class="profile-card">
-                    <div class="profile-header">Profile</div>
+                    <div class="profile-header"></div>
                     <div class="price-tag">$55/hr</div>
                     <div class="profile-body">
-                        <div class="profile-img">P</div>
+                        <div class="profile-img">
+                            <span>CR</span>
+                        </div>
                         <div class="profile-name">Carlos Ruiz</div>
                         <div class="profile-title">Desarrollador Frontend</div>
+                        <div class="skills-container">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Vue.js</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                        </div>
                         <div class="profile-actions">
                             <button class="profile-button">Ver perfil</button>
-                            <button class="profile-button hire-button">Contratar</button>
+                            <a href="pay.html" class="profile-button hire-button">Contratar</a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Profile 3 -->
                 <div class="profile-card">
-                    <div class="profile-header">Profile</div>
+                    <div class="profile-header"></div>
                     <div class="price-tag">$65/hr</div>
                     <div class="profile-body">
-                        <div class="profile-img">P</div>
+                        <div class="profile-img">
+                            <span>ET</span>
+                        </div>
                         <div class="profile-name">Elena Torres</div>
                         <div class="profile-title">Desarrolladora Backend</div>
+                        <div class="skills-container">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">MongoDB</span>
+                        </div>
                         <div class="profile-actions">
                             <button class="profile-button">Ver perfil</button>
-                            <button class="profile-button hire-button">Contratar</button>
+                            <a href="pay.html" class="profile-button hire-button">Contratar</a>
                         </div>
                     </div>
                 </div>
+            </div>
         </main>
     </div>
+
+    <script>
+        // Script para actualizar los valores de los sliders de precio
+        document.getElementById('min-price').addEventListener('input', function() {
+            document.getElementById('min-price-display').textContent = 'Min: $' + this.value + '/hr';
+        });
+        
+        document.getElementById('max-price').addEventListener('input', function() {
+            document.getElementById('max-price-display').textContent = 'Max: $' + this.value + '/hr';
+        });
+    </script>
 </body>
 </html>
