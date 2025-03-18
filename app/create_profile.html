@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/login_register.css">
+    <link rel="stylesheet" href="style/create_profile.css">
+    <link rel="icon" href="icons/icon.jpg">
+    <title>FlexiWork | Crear Perfil</title>
+</head>
+<body>
+    <div class="container-form profile">
+        <div class="information">
+            <div class="info-childs">
+                <h2>¡Completa tu perfil!</h2>
+                <p>Tu perfil es tu carta de presentación en FlexiWork. Cuanto más completo esté, mayores serán tus oportunidades de conectar.</p>
+                <div class="profile-image-container">
+                    <i class='bx bx-user-circle'></i>
+                    <p>Tu perfil profesional</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Crear tu perfil</h2>
+                <p>Completa la información para personalizar tu experiencia</p>
+                <form action="" class="form" method="POST">
+                    <!-- Tipo de usuario -->
+                    <div class="form-group">
+                        <label for="user-type" class="form-label">Tipo de usuario</label>
+                        <div class="select-wrapper">
+                            <i class='bx bx-user-pin'></i>
+                            <select name="user-type" id="user-type" required>
+                                <option value="" disabled selected>Selecciona tu rol</option>
+                                <option value="freelancer">Freelancer</option>
+                                <option value="customer">Cliente</option>
+                            </select>
+                            <i class='bx bx-chevron-down arrow-icon'></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Descripción -->
+                    <div class="form-group">
+                        <label for="description" class="form-label">Descripción profesional</label>
+                        <div class="textarea-wrapper">
+                            <i class='bx bx-edit-alt'></i>
+                            <textarea name="description" id="description" placeholder="Describe tu experiencia, habilidades y lo que te hace único..." required></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Tecnologías -->
+                    <div class="form-group freelancer-field" id="tech-container">
+                        <label for="technologies" class="form-label">Tecnologías que dominas</label>
+                        <div class="select-wrapper">
+                            <i class='bx bx-code-alt'></i>
+                            <select name="technologies" id="technologies" multiple>
+                                <option value="html">HTML/CSS</option>
+                                <option value="javascript">JavaScript</option>
+                                <option value="react">React</option>
+                                <option value="angular">Angular</option>
+                                <option value="vue">Vue.js</option>
+                                <option value="node">Node.js</option>
+                                <option value="php">PHP</option>
+                                <option value="python">Python</option>
+                                <option value="ruby">Ruby</option>
+                                <option value="java">Java</option>
+                                <option value="csharp">C#</option>
+                                <option value="wordpress">WordPress</option>
+                                <option value="mobile">Desarrollo Móvil</option>
+                                <option value="database">Bases de Datos</option>
+                                <option value="design">Diseño UI/UX</option>
+                            </select>
+                            <i class='bx bx-chevron-down arrow-icon'></i>
+                        </div>
+                        <p class="field-help">Mantén presionado Ctrl (o Cmd en Mac) para seleccionar múltiples opciones</p>
+                    </div>
+                    
+                    <!-- Servicios -->
+                    <div class="form-group freelancer-field" id="services-container">
+                        <label for="services" class="form-label">Servicios que ofreces</label>
+                        <div class="select-wrapper">
+                            <i class='bx bx-briefcase'></i>
+                            <select name="services" id="services" multiple>
+                                <option value="web">Desarrollo Web</option>
+                                <option value="app">Desarrollo de Aplicaciones</option>
+                                <option value="ecommerce">E-commerce</option>
+                                <option value="design">Diseño Gráfico</option>
+                                <option value="ux">Diseño UX/UI</option>
+                                <option value="marketing">Marketing Digital</option>
+                                <option value="seo">SEO</option>
+                                <option value="content">Creación de Contenido</option>
+                                <option value="translation">Traducción</option>
+                                <option value="consulting">Consultoría</option>
+                                <option value="writing">Redacción</option>
+                                <option value="data">Análisis de Datos</option>
+                                <option value="support">Soporte Técnico</option>
+                            </select>
+                            <i class='bx bx-chevron-down arrow-icon'></i>
+                        </div>
+                        <p class="field-help">Mantén presionado Ctrl (o Cmd en Mac) para seleccionar múltiples opciones</p>
+                    </div>
+                    
+                    <!-- Tarifa por hora -->
+                    <div class="form-group freelancer-field" id="hourly-rate-container">
+                        <label for="hourly-rate" class="form-label">Tarifa por hora (USD)</label>
+                        <label for="hourly-rate" class="input-label">
+                            <i class='bx bx-dollar'></i>
+                            <input type="number" name="hourly-rate" id="hourly-rate" placeholder="Ej. 25" min="5">
+                        </label>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="secondary-button">Cancelar</button>
+                        <input type="submit" value="Guardar Perfil">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Por defecto, ocultar los campos de freelancer
+        document.addEventListener('DOMContentLoaded', function() {
+            const freelancerFields = document.querySelectorAll('.freelancer-field');
+            freelancerFields.forEach(field => {
+                field.style.display = 'none';
+            });
+            
+            // Ajustar altura inicial del contenedor
+            adjustContainerHeight(false);
+        });
+        
+        // Script para mostrar/ocultar campos según el tipo de usuario
+        document.getElementById('user-type').addEventListener('change', function() {
+            const userType = this.value;
+            const freelancerFields = document.querySelectorAll('.freelancer-field');
+            
+            if (userType === 'freelancer') {
+                freelancerFields.forEach(field => {
+                    field.style.display = 'block';
+                });
+                // Ajustar altura del contenedor cuando se muestran campos de freelancer
+                adjustContainerHeight(true);
+                
+                // Asegurar que el scroll comience desde arriba
+                setTimeout(() => {
+                    document.querySelector('.form-information').scrollTop = 0;
+                }, 10);
+            } else if (userType === 'customer') {
+                freelancerFields.forEach(field => {
+                    field.style.display = 'none';
+                });
+                // Ajustar altura del contenedor cuando solo hay campos de cliente
+                adjustContainerHeight(false);
+            }
+        });
+        
+        // Función para ajustar la altura del contenedor según los campos visibles
+        function adjustContainerHeight(isFreelancer) {
+            const container = document.querySelector('.container-form.profile');
+            const windowHeight = window.innerHeight;
+            
+            // Si es una pantalla pequeña, dejar que el CSS responsivo se encargue
+            if (window.innerWidth <= 768) {
+                container.style.height = 'auto';
+                return;
+            }
+            
+            // Ajustar altura según el tipo de usuario seleccionado
+            if (isFreelancer) {
+                // Para freelancer, hacemos el contenedor más alto
+                const newHeight = Math.min(windowHeight * 0.9, 850);
+                container.style.height = newHeight + 'px';
+            } else {
+                // Para cliente, altura estándar
+                container.style.height = '650px';
+            }
+        }
+        
+        // Ajustar al cambiar el tamaño de la ventana
+        window.addEventListener('resize', function() {
+            const isFreelancer = document.getElementById('user-type').value === 'freelancer';
+            adjustContainerHeight(isFreelancer);
+        });
+    </script>
+</body>
+</html>

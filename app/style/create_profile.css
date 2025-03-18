@@ -1,0 +1,330 @@
+/* Estilos específicos para el formulario de creación de perfil */
+/* Estos estilos se deben agregar como complemento al CSS existente */
+
+.container-form.profile {
+    max-width: 1000px;
+    min-height: 650px;
+    height: auto;
+    margin: 20px;
+    overflow: visible;
+    transition: height 0.3s ease;
+}
+
+.form-information {
+    overflow-y: auto;
+    max-height: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: #4d4da6 #f0f0f0;
+}
+
+.form-information::-webkit-scrollbar {
+    width: 8px;
+}
+
+.form-information::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+}
+
+.form-information::-webkit-scrollbar-thumb {
+    background-color: #4d4da6;
+    border-radius: 10px;
+}
+
+.form-information-childs {
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.profile-image-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-image-container i {
+    font-size: 5rem;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.freelancer-field {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.select-wrapper, .textarea-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+
+.select-wrapper:focus-within, .textarea-wrapper:focus-within {
+    box-shadow: 0 2px 8px rgba(77, 77, 166, 0.3);
+    border: 1px solid #a8b9ff;
+    background-color: #fff;
+}
+
+.select-wrapper i:not(.arrow-icon), .textarea-wrapper i {
+    color: #4d4da6;
+    font-size: 1.2rem;
+    padding: 0 15px;
+    flex-shrink: 0;
+}
+
+.arrow-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4d4da6;
+    pointer-events: none;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    padding: 15px 10px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #333;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+select option {
+    padding: 10px;
+}
+
+select[multiple] {
+    height: 120px;
+}
+
+.textarea-wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+
+.textarea-wrapper i {
+    padding-top: 15px;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px 10px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #333;
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+    resize: vertical;
+}
+
+.input-label {
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    padding: 0 15px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+
+.input-label:focus-within {
+    box-shadow: 0 2px 8px rgba(77, 77, 166, 0.3);
+    border: 1px solid #a8b9ff;
+    background-color: #fff;
+}
+
+.input-label input {
+    width: 100%;
+    padding: 15px 10px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.field-help {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.secondary-button {
+    background-color: transparent;
+    border: 1px solid #4d4da6;
+    color: #4d4da6;
+    border-radius: 50px;
+    padding: 13px 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 45%;
+}
+
+.secondary-button:hover {
+    background-color: rgba(77, 77, 166, 0.1);
+}
+
+.form input[type="submit"] {
+    width: 45%;
+    margin: 0;
+}
+
+/* Modificar estilos del formulario principal */
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Adaptación para pantallas grandes */
+@media screen and (min-width: 1200px) {
+    .container-form.profile {
+        max-width: 1200px;
+    }
+    
+    .information {
+        width: 35%;
+    }
+    
+    .form-information {
+        width: 65%;
+    }
+}
+
+/* Estilos para el contenedor del formulario en dispositivos medianos */
+@media screen and (min-width: 769px) and (max-width: 1199px) {
+    .container-form.profile {
+        max-width: 90%;
+    }
+    
+    .form-information-childs {
+        padding: 20px;
+    }
+}
+
+/* Estilos para el contenedor del formulario en dispositivos pequeños */
+@media screen and (max-width: 768px) {
+    .container-form.profile {
+        min-height: auto;
+        height: auto !important; /* Forzar altura automática en móviles */
+        flex-direction: column;
+        max-width: 100%;
+        margin: 10px;
+    }
+    
+    .information, .form-information {
+        width: 100%;
+    }
+    
+    .information {
+        padding: 30px 20px;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .secondary-button,
+    .form input[type="submit"] {
+        width: 100%;
+    }
+    
+    .secondary-button {
+        order: 2;
+    }
+    
+    .form input[type="submit"] {
+        order: 1;
+    }
+    
+    .select-wrapper, .textarea-wrapper, .input-label {
+        margin-bottom: 5px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-information-childs {
+        padding: 20px 15px;
+    }
+    
+    body {
+        height: auto;
+        min-height: 100vh;
+        align-items: flex-start;
+        padding: 20px 0;
+    }
+}
+
+/* Estilos para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+    .profile-image-container i {
+        font-size: 4rem;
+        padding: 15px;
+    }
+    
+    .form-information-childs h2 {
+        font-size: 1.5rem;
+    }
+}

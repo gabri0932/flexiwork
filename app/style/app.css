@@ -10,6 +10,8 @@
     --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     --transition-normal: all 0.3s ease;
     --border-radius: 12px;
+    --gradient-primary: linear-gradient(135deg, var(--secondary-blue), var(--accent-blue));
+    --gradient-hover: linear-gradient(135deg, var(--accent-blue), var(--secondary-blue));
 }
 
 * {
@@ -20,8 +22,10 @@
 }
 
 body {
-    background-color: #f8fafc;
+    background-color: #f0f5f9;
     color: var(--text-primary);
+    min-height: 100vh;
+    position: relative;
 }
 
 /* Navbar Styles */
@@ -113,21 +117,31 @@ body {
     box-shadow: 0 5px 15px rgba(0, 180, 216, 0.4);
 }
 
-/* Main Container Styles */
+/* Main Container Styles  */
 .main-container {
     display: flex;
     min-height: calc(100vh - 80px);
+    max-width: 1800px;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px;
+    gap: 30px;
 }
 
-/* Sidebar Styles */
+/* Sidebar Styles  */
 .sidebar {
-    width: 300px;
+    width: 320px;
     background: linear-gradient(165deg, var(--primary-blue), var(--dark-blue));
     color: white;
     padding: 30px;
-    position: relative;
+    position: sticky;
+    top: 100px;
+    height: max-content;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    backdrop-filter: blur(10px);
 }
 
 .sidebar::before {
@@ -151,30 +165,39 @@ body {
 .search-box {
     display: flex;
     margin-bottom: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    border-radius: var(--border-radius);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
     overflow: hidden;
     transition: var(--transition-normal);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .search-box:focus-within {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .search-box input {
     flex: 1;
-    padding: 14px 16px;
+    padding: 16px 20px;
     border: none;
     outline: none;
     font-size: 14px;
     font-weight: 400;
+    border-radius: 15px 0 0 15px;
+}
+
+.search-box input::placeholder {
+    color: #aaa;
+    font-weight: 300;
 }
 
 .search-button {
-    background: linear-gradient(to right, var(--accent-blue), #0099cc);
+    background: var(--gradient-primary);
     border: none;
-    padding: 0 18px;
+    padding: 0 25px;
     cursor: pointer;
     color: white;
     transition: var(--transition-normal);
@@ -184,6 +207,8 @@ body {
 }
 
 .search-button svg {
+    right: 12px;
+    position: relative;
     stroke-width: 3;
     width: 18px;
     height: 18px;
@@ -191,7 +216,7 @@ body {
 }
 
 .search-button:hover {
-    background: linear-gradient(to right, #0099cc, #0088b3);
+    background: var(--gradient-hover);
 }
 
 .search-button:hover svg {
@@ -200,84 +225,110 @@ body {
 
 .sidebar-box {
     background-color: rgba(255, 255, 255, 0.08);
-    border-radius: var(--border-radius);
-    padding: 22px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
     transition: var(--transition-normal);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar-box::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .sidebar-box:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-box:hover::after {
+    opacity: 1;
 }
 
 .sidebar-box h3 {
-    font-size: 16px;
-    margin-bottom: 18px;
+    font-size: 18px;
+    margin-bottom: 22px;
     color: white;
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     letter-spacing: 0.5px;
+    position: relative;
 }
 
 .sidebar-box h3::before {
     content: "";
     display: block;
     width: 5px;
-    height: 16px;
+    height: 20px;
     background-color: var(--accent-blue);
     border-radius: 3px;
+    box-shadow: 0 0 10px var(--accent-blue);
 }
 
 .price-label {
-    font-size: 14px;
+    font-size: 15px;
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     display: block;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 .price-range {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .price-slider {
     width: 100%;
     appearance: none;
-    height: 6px;
+    height: 8px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
     outline: none;
+    position: relative;
 }
 
 .price-slider::-webkit-slider-thumb {
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     background: var(--accent-blue);
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    border: 2px solid white;
+    box-shadow: 0 0 15px rgba(0, 180, 216, 0.5);
+    border: 3px solid white;
     transition: var(--transition-normal);
 }
 
 .price-slider::-webkit-slider-thumb:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.7);
 }
 
 .price-display {
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 15px;
     color: rgba(255, 255, 255, 0.9);
     font-weight: 500;
     margin-bottom: 10px;
@@ -285,16 +336,16 @@ body {
 
 .dropdown {
     position: relative;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .dropdown select {
     width: 100%;
-    padding: 12px 15px;
+    padding: 15px 20px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
-    border-radius: 8px;
+    border-radius: 12px;
     outline: none;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
@@ -302,11 +353,13 @@ body {
     font-size: 14px;
     font-weight: 400;
     appearance: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
 .dropdown select:hover, .dropdown select:focus {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.18);
     border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .dropdown select option {
@@ -318,8 +371,8 @@ body {
 .dropdown::after {
     content: "▼";
     position: absolute;
-    right: 15px;
-    top: 12px;
+    right: 18px;
+    top: 15px;
     color: var(--accent-blue);
     font-size: 12px;
     pointer-events: none;
@@ -330,8 +383,53 @@ body {
     transform: translateY(2px);
 }
 
-/* Content Styles */
+/* Content Styles - MEJORADO */
 .content {
+    flex: 1;
+    padding: 30px 20px;
+    background-color: transparent;
+}
+
+.section-header {
+    margin-bottom: 35px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.section-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.profiles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+/* Profile Card Styles  */
+.content {
+    border-radius: 15px;
     flex: 1;
     padding: 35px;
     background-color: #f8fafc;
@@ -532,25 +630,35 @@ body {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     z-index: 3;
 }
-
 /* Responsive Styles */
+@media (max-width: 1200px) {
+    .profiles-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
 @media (max-width: 1024px) {
     .main-container {
         flex-direction: column;
+        padding: 15px;
+        gap: 20px;
     }
     
     .sidebar {
         width: 100%;
-        padding: 20px;
+        padding: 25px;
+        position: relative;
+        top: 0;
+        border-radius: 15px;
     }
     
     .content {
-        padding: 20px;
+        padding: 15px 0;
     }
     
     .profiles-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 30px;
     }
 }
 
@@ -565,9 +673,28 @@ body {
     
     .profiles-grid {
         grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+        gap: 25px;
     }
     
     .section-title {
-        font-size: 22px;
+        font-size: 24px;
+    }
+    
+    .profile-card:hover {
+        transform: translateY(-8px);
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 20px;
+    }
+    
+    .sidebar-box {
+        padding: 20px;
+    }
+    
+    .profile-body {
+        padding: 25px 15px 20px;
     }
 }
