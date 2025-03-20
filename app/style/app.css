@@ -598,6 +598,10 @@ body {
     text-decoration: none;
     display: inline-block;
 }
+.profile-button a{
+    text-decoration: none;
+    color: var(--primary-blue);
+}
 
 .profile-button:hover {
     background-color: rgba(26, 95, 122, 0.05);
