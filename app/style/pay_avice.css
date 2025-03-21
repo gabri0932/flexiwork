@@ -1,0 +1,91 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  .container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .header h1 {
+    color: #2c3e50;
+    margin-bottom: 5px;
+  }
+  .header p {
+    color: #7f8c8d;
+    margin-top: 0;
+  }
+  .confirmation-icon {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .confirmation-icon span {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-color: #2ecc71;
+    border-radius: 50%;
+    color: white;
+    font-size: 30px;
+    line-height: 60px;
+  }
+  .freelancer-info {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+  }
+  .freelancer-info h2 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #34495e;
+  }
+  .contact-item {
+    margin: 10px 0;
+  }
+  .contact-item strong {
+    display: inline-block;
+    width: 120px;
+  }
+  .steps {
+    margin-bottom: 25px;
+  }
+  .steps h2 {
+    font-size: 18px;
+    color: #34495e;
+  }
+  .steps ol {
+    padding-left: 20px;
+  }
+  .steps li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .reference {
+    background-color: #f1f8ff;
+    border-left: 4px solid #3498db;
+    padding: 15px;
+    margin-top: 25px;
+    font-size: 14px;
+  }
+  .button {
+    display: block;
+    text-align: center;
+    background-color: #3498db;
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 25px;
+  }
