@@ -3,6 +3,8 @@ const errorContainer = document.getElementById("error");
 const URL = 'https://api-rest-emprendi.onrender.com/auth/signin';
 let error = null;
 
+console.log(`${location.hostname}/app/app.html`);
+
 loginForm.addEventListener('submit', async (event) => {
     // Para detener el envío del formulario.
     event.preventDefault();
@@ -54,10 +56,7 @@ loginForm.addEventListener('submit', async (event) => {
 
     const json = await resultado.json();
     const { sessionId } = json.data;
-    localStorage.setItem('__Session', sessionId)
-    window.location.href = "../../../app/app.html";
 
-
-
-
+    localStorage.setItem('__Session', sessionId);
+    window.location.assign();
 });
