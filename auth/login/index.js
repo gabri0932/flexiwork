@@ -2,7 +2,7 @@ const loginForm = document.getElementById('login-form');
 const errorContainer = document.getElementById("error");
 let error = null;
 
-loginForm.addEventListener('submit', (event) => {
+loginForm.addEventListener('submit', async (event) => {
     // Para detener el envío del formulario.
     event.preventDefault();
     error = null;
@@ -27,4 +27,14 @@ loginForm.addEventListener('submit', (event) => {
 
     errorContainer.innerText = '';
     errorContainer.hidden = true;
+    const url = 'https://api-rest-emprendi.onrender.com'
+    const resultado = await fetch(url,{
+        method: 'POST',
+        body: JSON.stringify(inputs)
+    })
+    if(!resultado.ok){
+        errorContainer.innerText = (await resultado.json()).message
+        errorContainer.hidden = false;
+        return;
+    }console.log(await resultado.json())
 });
