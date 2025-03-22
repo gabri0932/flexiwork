@@ -25,6 +25,7 @@
         <nav>
             <ul>
                 <li><a href="#Inicio">Inicio</a></li>
+                <li><a href="#ComoFunciona">Cómo Funciona</a></li>
                 <li><a href="#Servicios">Servicios</a></li>
                 <li><a href="#Contacto">Contacto</a></li>
                 <li class="login-btn"><a href="auth/login/index.html" target="_blank">Iniciar Sesión</a></li>
@@ -38,7 +39,10 @@
     <section id="Inicio">
         <h1>Encuentra al freelancer perfecto para tu proyecto</h1>
         <p>Conecta con miles de profesionales en tecnología, diseño y más.</p>
-        <a href="auth/login/index.html" class="boton-cta" target="_blank">Únete ahora</a>
+        <div class="cta-buttons">
+            <a href="auth/login/index.html" class="boton-cta" target="_blank">Iniciar Ahora</a>
+            <a href="#ComoFunciona" class="boton-secundario">Cómo Funciona</a>
+        </div>
         <div class="beneficios">
             <div>
                 <h2>+10,000</h2>
@@ -55,31 +59,35 @@
         </div>
     </section>
     
-    <section id="Register">
-        <div class="contenedor">
-            <div class="seccion">
-                <div class="caja">
-                    <h2>Únete Como Freelancer</h2>
-                    <p>"Trabaja con libertad y encuentra clientes de todo el mundo."</p>
-                    <button class="boton1">Iniciar Sesión Como Freelancer</button>
-                    <p>¿No tienes cuenta? <a href="/auth/register/index.html" target="_blank">Regístrate</a></p>
-                </div>
-                <img src="assets/img/Imagen de Cohete Login.png" alt="Cohete ilustrativo para freelancers" class="img">
+    <section id="ComoFunciona">
+        <h2>Cómo Funciona FlexiWork</h2>
+        <p>Tres simples pasos para conectar con el talento que necesitas</p>
+        
+        <div class="pasos-container">
+            <div class="paso">
+                <div class="paso-numero">1</div>
+                <div class="paso-icon"><i class='bx bx-edit-alt'></i></div>
+                <h3>Crea tu cuenta</h3>
+                <p>Regístrate gratis y completa tu perfil para empezar a explorar talentos disponibles.</p>
+            </div>
+            
+            <div class="paso">
+                <div class="paso-numero">2</div>
+                <div class="paso-icon"><i class='bx bx-user-check'></i></div>
+                <h3>Selecciona al Freelancer</h3>
+                <p>Explora perfiles, elige al mejor profesional y asegura tu proyecto con un pago seguro.</p>
+            </div>
+            
+            <div class="paso">
+                <div class="paso-numero">3</div>
+                <div class="paso-icon"><i class='bx bx-check-circle'></i></div>
+                <h3>Recibe Resultados</h3>
+                <p>El freelancer entrega tu trabajo y tu pago está protegido hasta que todo esté listo. ¡Así de fácil!</p>
             </div>
         </div>
-
-        <div class="contenedor">
-            <div class="seccion">
-                <img src="assets/img/Imagen Cohete 2.png" alt="Cohete ilustrativo para clientes" class="img">
-                <div class="caja">
-                    <h2>Únete Como Cliente</h2>
-                    <p>"Encuentra a los mejores freelancers y lleva tus proyectos al siguiente nivel.
-                        Regístrate o Inicia Sesión para comenzar a contratar talento."
-                    </p>
-                    <button class="boton1">Iniciar Sesión Como Cliente</button>
-                    <p>¿No tienes cuenta? <a href="auth/register/index.html" target="_blank">Regístrate</a></p>
-                </div>
-            </div>
+        
+        <div class="cta-container">
+            <a href="auth/register/index.html" class="boton-cta" target="_blank">Registrarme Gratis</a>
         </div>
     </section>
     
@@ -90,44 +98,95 @@
         </p>
         <div class="ListaServicios">
             <div class="servicio">
-                <img src="assets/img/Diseño web.png" alt="Diseño Gráfico">
-                <h3>Diseño Gráfico</h3>
-                <p>Logotipos, branding, ilustraciones y más.</p>
-            </div>
-
-            <div class="servicio">
                 <img src="assets/img/Desarollo Web.png" alt="Desarrollo Web">
                 <h3>Desarrollo Web</h3>
                 <p>Creación de sitios web, aplicaciones y plataformas.</p>
+                <a href="#" class="ver-mas">Ver más <i class='bx bx-right-arrow-alt'></i></a>
             </div>   
 
             <div class="servicio">
                 <img src="assets/img/Marketing Digital.png" alt="Marketing Digital">
                 <h3>Marketing Digital</h3>
                 <p>Publicidad en redes, SEO, campañas publicitarias.</p>
+                <a href="#" class="ver-mas">Ver más <i class='bx bx-right-arrow-alt'></i></a>
             </div>   
 
             <div class="servicio">
                 <img src="assets/img/Redaccion y traduccion.png" alt="Redacción y Traducción">
                 <h3>Redacción y Traducción</h3>
                 <p>Artículos, blogs, traducciones profesionales.</p>
+                <a href="#" class="ver-mas">Ver más <i class='bx bx-right-arrow-alt'></i></a>
             </div>
+        </div>
+        <div class="ver-todos-container">
+            <a href="#" class="ver-todos">Ver Todos los Servicios <i class='bx bx-chevron-right'></i></a>
         </div>
     </section>
     
-    <footer id="Contacto">
-        <img src="assets/img/Logo FlexiWork ultimo.png" alt="Logo FlexiWork" class="flexiwork">
-        <h3>©Todos los derechos reservados 2025</h3>
-        <div class="info-contacto">
-            <p><strong>Email:</strong> contacto@flexiwork.com</p>
-            <p><strong>Teléfono:</strong> +123 456 7890</p>
-        </div>
+   
     
-        <div class="RedesSociales">
-            <i class='bx bxl-instagram'></i>
-            <i class='bx bxl-facebook-circle'></i>
-            <i class='bx bxl-twitter'></i>
+    <footer id="Contacto">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/img/Logo FlexiWork ultimo.png" alt="Logo FlexiWork" class="flexiwork">
+                <p>La plataforma líder de freelancers en Latinoamérica</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#Inicio">Inicio</a></li>
+                    <li><a href="#ComoFunciona">Cómo Funciona</a></li>
+                    <li><a href="#Servicios">Servicios</a></li>
+                    <li><a href="auth/register/index.html">Registrarse</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <p><i class='bx bx-envelope'></i> contacto@flexiwork.com</p>
+                <p><i class='bx bx-phone'></i> +123 456 7890</p>
+                <p><i class='bx bx-map'></i> SC, Loyola, RepDom.</p>
+                
+                <div class="RedesSociales">
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>©Todos los derechos reservados 2025 | FlexiWork</p>
+            <div class="footer-legal">
+                <a href="#">Términos de Servicio</a>
+                <a href="#">Política de Privacidad</a>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Script para manejar el menú móvil
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+        
+        // Script para manejar smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Cerrar el menú móvil si está abierto
+                if (document.querySelector('nav ul').classList.contains('active')) {
+                    document.querySelector('nav ul').classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

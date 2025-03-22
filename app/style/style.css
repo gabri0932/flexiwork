@@ -6,8 +6,6 @@ body {
     line-height: 1.6;
 }
 
-
-
 header {
     display: flex;
     justify-content: space-between;
@@ -101,7 +99,7 @@ nav {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 35px;
+    gap: 25px;
     margin: 0;
     padding: 0;
 }
@@ -250,7 +248,6 @@ nav ul li a:hover::after {
     transform: translateY(-3px) scale(1.02);
 }
 
-
 /* Sección de inicio mejorada */
 #Inicio {
     display: flex;
@@ -282,6 +279,14 @@ nav ul li a:hover::after {
     max-width: 700px;
 }
 
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
 .boton-cta {
     display: inline-block;
     padding: 14px 30px;
@@ -299,6 +304,24 @@ nav ul li a:hover::after {
     background: linear-gradient(135deg, #0056b3, #003d80);
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
+}
+
+.boton-secundario {
+    display: inline-block;
+    padding: 14px 30px;
+    background: transparent;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+}
+
+.boton-secundario:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }
 
 /* Beneficios mejorados con iconos */
@@ -359,111 +382,147 @@ nav ul li a:hover::after {
     color: #e0e0e0;
 }
 
-/* Sección Register mejorada */
-#Register {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("/assets/img/Fondo-Section-Login.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-.contenedor {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 70vh;
-    padding: 40px 20px;
-}
-
-.seccion {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    max-width: 1200px;
-    width: 100%;
-}
-
-.caja {
-    background: rgba(0, 56, 168, 0.9);
-    padding: 30px;
-    border-radius: 15px;
+/* Nueva sección: Cómo Funciona */
+/* Mejoras para la sección Cómo Funciona */
+#ComoFunciona {
+    padding: 100px 20px;
     text-align: center;
-    color: white;
-    width: 400px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(5px);
+    background: linear-gradient(135deg, #f8faff, #eef2ff);
 }
 
-.caja h2 {
-    font-size: 24px;
+#ComoFunciona h2 {
+    font-size: 2.2rem;
     margin-bottom: 15px;
+    color: #003366;
     position: relative;
+    display: inline-block;
     padding-bottom: 10px;
 }
 
-.caja h2::after {
+#ComoFunciona h2::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
+    width: 80px;
     height: 3px;
-    background-color: #ffcc00;
+    background-color: #004AAD;
 }
 
-.caja p {
-    font-size: 16px;
-    margin-bottom: 25px;
+#ComoFunciona > p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pasos-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.paso {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    width: 280px;
+    position: relative;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.paso:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.paso-numero {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    z-index: 1;
+}
+
+.paso-icon {
+    margin-bottom: 20px;
+    font-size: 3rem;
+    color: #004AAD;
+}
+
+.paso h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #0056b3;
+}
+
+.paso p {
+    color: #555;
+    font-size: 0.95rem;
     line-height: 1.6;
 }
 
-.boton1 {
-    background: linear-gradient(45deg, #004aad, #002855);
-    color: white;
-    padding: 14px 26px;
-    border: none;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    margin-bottom: 15px;
-    width: 80%;
+.cta-container {
+    margin-top: 50px;
 }
 
-.boton1:hover {
-    background: linear-gradient(45deg, #002855, #001c3d);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+/* Añadir media queries para hacer la sección responsiva */
+@media (max-width: 992px) {
+    .pasos-container {
+        gap: 20px;
+    }
+    
+    .paso {
+        width: calc(50% - 20px);
+        max-width: 280px;
+    }
 }
 
-.caja a {
-    color: #ffcc00;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
+@media (max-width: 768px) {
+    #ComoFunciona {
+        padding: 70px 15px;
+    }
+    
+    .pasos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .paso {
+        width: 100%;
+        max-width: 320px;
+        margin-bottom: 30px;
+    }
+    
+    .paso-numero {
+        top: -15px;
+    }
 }
-
-.caja a:hover {
-    color: #ffdd33;
-    text-decoration: underline;
-}
-
-.img {
-    width: 480px;
-    max-width: 100%;
-    filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.3));
-    transition: transform 0.5s ease;
-}
-
-.img:hover {
-    transform: scale(1.03) rotate(1deg);
-}
-
-/* Sección de servicios mejorada */
+/* Mejora de la sección Servicios */
 #Servicios {
     text-align: center;
     padding: 80px 20px;
@@ -518,6 +577,8 @@ nav ul li a:hover::after {
     width: 230px;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .servicio::before {
@@ -544,6 +605,8 @@ nav ul li a:hover::after {
     margin-bottom: 20px;
     border-radius: 10px;
     transition: transform 0.5s ease;
+    position: relative;
+    left: 40px;
 }
 
 .servicio h3 {
@@ -554,175 +617,208 @@ nav ul li a:hover::after {
     padding-bottom: 8px;
 }
 
-.servicio h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 2px;
-    background-color: #007bff;
+.ver-mas {
+    color: #0056b3;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: auto;
+    transition: all 0.3s ease;
 }
 
-.servicio p {
-    font-size: 0.95rem;
-    color: #555;
-    line-height: 1.5;
+.ver-mas i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
 }
 
-.servicio:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(to bottom, white, #f8f9fa);
+.ver-mas:hover {
+    color: #003d80;
 }
 
-.servicio:hover img {
-    transform: scale(1.1);
+.ver-mas:hover i {
+    transform: translateX(3px);
 }
 
-/* Footer unificado y mejorado */
-footer {
-    background: linear-gradient(45deg, #003366, #001a33);
+.ver-todos-container {
+    margin-top: 40px;
+}
+
+.ver-todos {
+    display: inline-flex;
+    align-items: center;
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    gap: 5px;
+    padding: 12px 25px;
+    border: 1px solid #0056b3;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.ver-todos i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.ver-todos:hover {
+    background: #0056b3;
     color: white;
-    padding: 40px;
+}
+
+.ver-todos:hover i {
+    transform: translateX(3px);
+}
+
+/*footer */
+footer {
+    background: #002244;
+    color: white;
+    padding: 60px 20px 20px 20px;
+}
+
+.footer-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
-    border-top: 1px solid #004AAD;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    gap: 40px;
 }
 
-footer img {
-    width: 130px;
-    margin-right: 20px;
-    filter: brightness(1.1);
+.footer-logo {
+    flex: 1 1 300px;
 }
 
-footer h3 {
-    font-size: 1rem;
-    font-weight: 400;
-    color: #ccc;
+.footer-logo img {
+    height: 60px;
+    margin-bottom: 15px;
+    filter: brightness(1.2);
 }
 
-.info-contacto {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.footer-logo p {
+    color: #c5d6e8;
     font-size: 0.95rem;
+    max-width: 300px;
 }
 
-.info-contacto p {
+.footer-links, .footer-contact {
+    flex: 1 1 200px;
+}
+
+.footer-links h3, .footer-contact h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.footer-links h3::after, .footer-contact h3::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background: #007bff;
+    bottom: 0;
+    left: 0;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
     margin: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #c5d6e8;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 2px 0;
+    display: inline-block;
+}
+
+.footer-links ul li a:hover {
+    color: #007bff;
+    transform: translateX(5px);
+}
+
+.footer-contact p {
+    color: #c5d6e8;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
-.info-contacto p strong {
-    margin-right: 5px;
-    color: #99ccff;
-}
-
-.info-contacto p::before {
-    font-family: 'boxicons';
-    margin-right: 8px;
+.footer-contact p i {
     font-size: 1.2rem;
-    color: #99ccff;
-}
-
-.info-contacto p:nth-child(1)::before {
-    content: '\ed63'; /* Icono de email */
-}
-
-.info-contacto p:nth-child(2)::before {
-    content: '\eb22'; /* Icono de teléfono */
+    color: #007bff;
 }
 
 .RedesSociales {
     display: flex;
     gap: 15px;
+    margin-top: 25px;
 }
 
-.RedesSociales i {
-    font-size: 28px;
+.RedesSociales a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
     color: white;
+    font-size: 1.3rem;
     transition: all 0.3s ease;
-    cursor: pointer;
 }
 
-.RedesSociales i:hover {
-    transform: scale(1.2);
-    color: #99ccff;
+.RedesSociales a:hover {
+    background: #007bff;
+    transform: translateY(-5px);
 }
 
-/* Responsive mejorado */
-@media (max-width: 1100px) {
-    .seccion {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .img {
-        width: 350px;
-    }
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .header-left {
-        flex-direction: column;
-        gap: 15px;
-        margin-bottom: 15px;
-    }
-
-    .search-input {
-        width: 220px;
-    }
-
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    #Inicio h1 {
-        font-size: 2rem;
-    }
-    
-    .beneficios {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .ListaServicios {
-        gap: 20px;
-    }
-    
-    footer {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    
-    .info-contacto {
-        align-items: center;
-    }
+.footer-bottom p {
+    color: #a0b4cb;
+    font-size: 0.9rem;
+    margin: 0;
 }
 
-@media (max-width: 480px) {
-    .caja {
-        width: 100%;
-        padding: 20px;
-    }
-    
-    .img {
-        width: 280px;
-    }
-    
-    .boton1 {
-        width: 100%;
-    }
+.footer-legal {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-legal a {
+    color: #a0b4cb;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+    color: #007bff;
 }
