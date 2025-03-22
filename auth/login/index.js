@@ -40,10 +40,18 @@ loginForm.addEventListener('submit', async (event) => {
     });
     
     if (!resultado.ok) {
-        errorContainer.innerText = (await resultado.json()).message
+        const { status } = resultado;
+        const json = await resultado.json();
+
+        const errorMessage = status === 400
+            ? 'Something went wrong: Client side error.'
+            : json.message;
+        
+        errorContainer.innerText = errorMessage;
         errorContainer.hidden = false;
         return;
     }
-    
-    console.log(await resultado.json())
+
+    const json = await resultado.json();
+    const { sessionId } = json.data;
 });
