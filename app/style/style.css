@@ -259,7 +259,7 @@ nav ul li a:hover::after {
     justify-content: center;
     text-align: center;
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url("../img/Trabajando\ en\ casa.png");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url("/assets/img/Trabajando\ en\ casa.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Efecto parallax */
@@ -361,7 +361,7 @@ nav ul li a:hover::after {
 
 /* Sección Register mejorada */
 #Register {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../img/Fondo-Section-Login.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("/assets/img/Fondo-Section-Login.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
