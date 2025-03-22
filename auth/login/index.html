@@ -6,7 +6,6 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style/login_register.css">
-    <link rel="icon" href="icons/icon.jpg">
     <title>FlexiWork | Iniciar Sesión</title>
 </head>
 <body>
@@ -15,7 +14,7 @@
             <div class="info-childs">
                 <h2>¡Bienvenido nuevamente!</h2>
                 <p>Para unirte a la comunidad de Flexi Work por favor regístrate y comienza a disfrutar de todos nuestros servicios</p>
-                <a href="login_register.html">Regístrate</a>
+                <a href="../register/index.html">Regístrate</a>
             </div>
         </div>
         <div class="form-information">
@@ -27,7 +26,7 @@
                     <i class='bx bxl-linkedin-square'></i>
                 </div>
                 <p>o Inicia Sesión con tu cuenta</p>
-                <form action="" class="form" method="POST">
+                <form class="form" id='login-form'>
                     <label for="email">
                         <i class='bx bx-envelope'></i>
                         <input type="email" name="email" id="email" placeholder="Correo Electrónico" required>
@@ -42,5 +41,6 @@
             </div>
         </div>
     </div>
+    <script src="./index.js"></script>
 </body>
 </html>

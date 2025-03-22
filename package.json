@@ -2,13 +2,19 @@
   "name": "proyecto-emprendimiento",
   "version": "1.0.0",
   "description": "Trabajo final de la materia",
-  "main": "index.js",
   "scripts": {
-    "start": "servor"
+    "dev": "parcel",
+    "build": "parcel build"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "servor": "4.0.2"
+    "parcel": "2.14.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@swc/core",
+      "lmdb",
+      "msgpackr-extract"
+    ]
   }
 }
