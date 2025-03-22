@@ -54,4 +54,10 @@ loginForm.addEventListener('submit', async (event) => {
 
     const json = await resultado.json();
     const { sessionId } = json.data;
+    localStorage.setItem('__Session', sessionId)
+    window.location.href = "../../../app/app.html";
+
+
+
+
 });
