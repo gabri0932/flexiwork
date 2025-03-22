@@ -17,7 +17,6 @@
                 <a href="../register/index.html">Regístrate</a>
             </div>
         </div>
-        <span id="error"></span>
         <div class="form-information">
             <div class="form-information-childs">
                 <h2>Iniciar Sesión</h2>
@@ -36,6 +35,9 @@
                         <i class='bx bx-lock-alt'></i>
                         <input type="password" name="password" id="password" placeholder="Contraseña" required>
                     </label>
+                    <div style='color: red; width: 100%; text-align: center;'>
+                        <span id="error" hidden></span>
+                    </div>
                     <input type="submit" value="Iniciar Sesión">
                 </form>
                 <p style="margin-top: 20px; font-size: 0.9rem;"><a href="#" style="color: #4d4da6; text-decoration: none;">¿Olvidaste tu contraseña?</a></p>
