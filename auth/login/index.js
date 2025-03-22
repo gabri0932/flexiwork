@@ -58,5 +58,5 @@ loginForm.addEventListener('submit', async (event) => {
     const { sessionId } = json.data;
 
     localStorage.setItem('__Session', sessionId);
-    window.location.assign();
+    window.location.assign('/app/app.html');
 });
