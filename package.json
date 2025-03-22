@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Trabajo final de la materia",
   "scripts": {
-    "dev": "parcel",
-    "build": "parcel build"
+    "dev": "parcel ./index.html",
+    "build": "parcel build ./index.html"
   },
   "devDependencies": {
     "parcel": "2.14.1"
