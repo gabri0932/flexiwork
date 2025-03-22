@@ -29,7 +29,7 @@ loginForm.addEventListener('submit', async (event) => {
     errorContainer.innerText = '';
     errorContainer.hidden = true;
 
-    const resultado = await fetch(url,{
+    const resultado = await fetch(URL,{
         method: 'POST',
         body: JSON.stringify(inputs)
     });
