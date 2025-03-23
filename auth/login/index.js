@@ -3,7 +3,7 @@ const errorContainer = document.getElementById("error");
 const URL = 'https://api-rest-emprendi.onrender.com/auth/signin';
 let error = null;
 
-console.log(`${location.hostname}/app/app.html`);
+console.log(`${location.hostname}:${location.port}/app/app.html`);
 
 loginForm.addEventListener('submit', async (event) => {
     // Para detener el envío del formulario.
@@ -47,7 +47,9 @@ loginForm.addEventListener('submit', async (event) => {
 
         const errorMessage = status === 400
             ? 'Something went wrong: Client side error.'
-            : json.message;
+            : status === 401
+                ? json.error
+                : json.message;
         
         errorContainer.innerText = errorMessage;
         errorContainer.hidden = false;
@@ -57,6 +59,6 @@ loginForm.addEventListener('submit', async (event) => {
     const json = await resultado.json();
     const { sessionId } = json.data;
 
-    localStorage.setItem('__Session', sessionId);
-    window.location.assign('/app/app.html');
+    localStorage.setItem('__session', sessionId);
+    window.location.assign('/app/explore/index.html');
 });
