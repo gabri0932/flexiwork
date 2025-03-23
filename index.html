@@ -29,6 +29,7 @@
                 <li><a href="#Servicios">Servicios</a></li>
                 <li><a href="#Contacto">Contacto</a></li>
                 <li class="login-btn"><a href="auth/login/index.html" target="_blank">Iniciar Sesión</a></li>
+                <li class="register-btn"><a href="auth/register/index.html" target="_blank">Registrarse</a></li>
             </ul>
             <div class="menu-toggle">
                 <i class='bx bx-menu'></i>
@@ -37,24 +38,42 @@
     </header>
     
     <section id="Inicio">
-        <h1>Encuentra al freelancer perfecto para tu proyecto</h1>
-        <p>Conecta con miles de profesionales en tecnología, diseño y más.</p>
-        <div class="cta-buttons">
-            <a href="auth/login/index.html" class="boton-cta" target="_blank">Iniciar Ahora</a>
-            <a href="#ComoFunciona" class="boton-secundario">Cómo Funciona</a>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Talento freelance para <span class="highlight-text">impulsar tu éxito</span></h1>
+                <p>Conecta con miles de profesionales especializados en tecnología, diseño y marketing digital.</p>
+                <div class="cta-buttons">
+                    <a href="auth/login/index.html" class="boton-cta" target="_blank">Comenzar Ahora</a>
+                    <a href="#ComoFunciona" class="boton-secundario">Descubrir Cómo</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <img src="assets/img/Desarollo Web.png" alt="Profesionales trabajando" class="main-image">
+            </div>
         </div>
-        <div class="beneficios">
-            <div>
+        
+        <div class="stats-container">
+            <div class="stat-card">
+                <i class='bx bx-user-check'></i>
                 <h2>+10,000</h2>
-                <p>Freelancers registrados</p>
+                <p>Freelancers expertos</p>
             </div>
-            <div>
+            <div class="stat-card">
+                <i class='bx bx-task'></i>
                 <h2>+5,000</h2>
-                <p>Proyectos completados</p>
+                <p>Proyectos exitosos</p>
             </div>
-            <div>
-                <h2>Pago Seguro</h2>
-                <p>Protegemos cada transacción</p>
+            <div class="stat-card">
+                <i class='bx bx-shield-quarter'></i>
+                <h2>100%</h2>
+                <p>Transacciones seguras</p>
+            </div>
+            <div class="stat-card">
+                <i class='bx bx-star'></i>
+                <h2>4.8/5</h2>
+                <p>Calificación promedio</p>
             </div>
         </div>
     </section>
@@ -98,26 +117,36 @@
         </p>
         <div class="ListaServicios">
             <div class="servicio">
-                <img src="assets/img/Desarollo Web.png" alt="Desarrollo Web">
+                <div class="servicio-icon">
+                    <i class='bx bx-code-alt'></i>
+                </div>
                 <h3>Desarrollo Web</h3>
                 <p>Creación de sitios web, aplicaciones y plataformas.</p>
                 <a href="#" class="ver-mas">Ver más <i class='bx bx-right-arrow-alt'></i></a>
             </div>   
 
             <div class="servicio">
-                <img src="assets/img/Marketing Digital.png" alt="Marketing Digital">
+                <div class="servicio-icon">
+                    <i class='bx bx-trending-up'></i>
+                </div>
                 <h3>Marketing Digital</h3>
                 <p>Publicidad en redes, SEO, campañas publicitarias.</p>
                 <a href="#" class="ver-mas">Ver más <i class='bx bx-right-arrow-alt'></i></a>
             </div>   
-                <div class="servicio">
-                    <img src="assets/img/Diseño web.png" alt="Diseño Gráfico">
-                    <h3>Diseño Gráfico</h3>
-                    <p>Logotipos, branding, ilustraciones y más.</p>
-                    <a href="#" class="ver-mas">Ver más <i class='bx bx-right-arrow-alt'></i></a>
-                </div>
+            
             <div class="servicio">
-                <img src="assets/img/Redaccion y traduccion.png" alt="Redacción y Traducción">
+                <div class="servicio-icon">
+                    <i class='bx bx-palette'></i>
+                </div>
+                <h3>Diseño Gráfico</h3>
+                <p>Logotipos, branding, ilustraciones y más.</p>
+                <a href="#" class="ver-mas">Ver más <i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+            
+            <div class="servicio">
+                <div class="servicio-icon">
+                    <i class='bx bx-edit'></i>
+                </div>
                 <h3>Redacción y Traducción</h3>
                 <p>Artículos, blogs, traducciones profesionales.</p>
                 <a href="#" class="ver-mas">Ver más <i class='bx bx-right-arrow-alt'></i></a>
@@ -127,8 +156,6 @@
             <a href="#" class="ver-todos">Ver Todos los Servicios <i class='bx bx-chevron-right'></i></a>
         </div>
     </section>
-    
-   
     
     <footer id="Contacto">
         <div class="footer-content">
@@ -194,4 +221,5 @@
         });
     </script>
 </body>
+
 </html>

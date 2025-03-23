@@ -4,46 +4,53 @@ body {
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
     color: #333;
     line-height: 1.6;
+    background-color: #fafafa;
 }
 
+/* Header elegante y moderno */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 5%;
+    padding: 15px 5%;
     background-color: #ffffff;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.05);
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
     box-sizing: border-box;
-    border-bottom: 1px solid #f5f5f5;
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    padding: 10px 5%;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Contenedor del logo y barra de búsqueda */
 .header-left {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 30px;
 }
 
-/* Logo */
+/* Logo mejorado */
 header img {
-    height: 45px;
+    height: 50px;
     transition: all 0.3s ease;
 }
 
 header img:hover {
-    transform: scale(1.02);
+    transform: scale(1.03);
 }
 
 .flexiwork {
     border-radius: 8px;
 }
 
-/* Barra de búsqueda mejorada */
+/* Barra de búsqueda rediseñada */
 .search-bar {
     position: relative;
     display: flex;
@@ -53,7 +60,7 @@ header img:hover {
 
 .search-icon {
     position: absolute;
-    left: 12px;
+    left: 15px;
     color: #888;
     font-size: 18px;
     pointer-events: none;
@@ -62,8 +69,8 @@ header img:hover {
 }
 
 .search-input {
-    width: 280px;
-    padding: 10px 15px 10px 40px;
+    width: 300px;
+    padding: 12px 20px 12px 45px;
     border: 1px solid #eaeaea;
     border-radius: 30px;
     font-size: 14px;
@@ -79,18 +86,18 @@ header img:hover {
 }
 
 .search-input:focus {
-    width: 320px;
+    width: 340px;
     background-color: #fff;
-    border-color: #0056b3;
-    box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.1);
+    border-color: #004AAD;
+    box-shadow: 0 0 0 5px rgba(0, 74, 173, 0.08);
 }
 
 .search-input:focus + .search-icon,
 .search-bar:hover .search-icon {
-    color: #0056b3;
+    color: #004AAD;
 }
 
-/* Navegación minimalista y elegante */
+/* Navegación elegante */
 nav {
     display: flex;
     align-items: center;
@@ -99,7 +106,7 @@ nav {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
@@ -138,251 +145,228 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
-/* Estilos para el botón de iniciar sesión */
+/* Estilos para botones de login y registro */
+.login-btn a, .register-btn a {
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
 .login-btn a {
     color: #004AAD;
-    font-weight: 600;
+    border: 1px solid #004AAD;
 }
 
 .login-btn a:hover {
-    opacity: 0.85;
+    background-color: rgba(0, 74, 173, 0.08);
+}
+
+.register-btn a {
+    color: white;
+    background: linear-gradient(135deg, #004AAD, #0067FF);
+    box-shadow: 0 4px 10px rgba(0, 74, 173, 0.2);
+}
+
+.register-btn a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 74, 173, 0.3);
 }
 
 /* Toggle para menú móvil */
 .menu-toggle {
     display: none;
-    font-size: 24px;
+    font-size: 26px;
     cursor: pointer;
     color: #004AAD;
 }
 
-/* Responsive mejorado */
-@media (max-width: 992px) {
-    .search-input {
-        width: 220px;
-    }
-    
-    .search-input:focus {
-        width: 260px;
-    }
-    
-    nav ul {
-        gap: 25px;
-    }
-}
-
-@media (max-width: 768px) {
-    header {
-        padding: 12px 4%;
-    }
-    
-    .header-left {
-        gap: 15px;
-    }
-    
-    .search-bar {
-        display: none;
-    }
-    
-    nav ul {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: white;
-        flex-direction: column;
-        text-align: center;
-        padding: 20px 0;
-        gap: 15px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        z-index: 100;
-    }
-    
-    nav ul.active {
-        display: flex;
-    }
-    
-    .menu-toggle {
-        display: block;
-    }
-    
-    nav ul li a {
-        display: block;
-        padding: 12px 0;
-    }
-    
-    nav ul li a::after {
-        display: none;
-    }
-}
-
-/* Ajustes adicionales para otras secciones */
-
-/* Ajustar márgenes de la sección Inicio para compensar el header fijo */
-#Inicio {
-    padding-top: 80px;
-}
-
-/* Mejoras en la sección de servicios */
-.servicio {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s ease;
-    overflow: hidden;
-}
-
-.servicio:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-}
-
-/* Mejoras en los botones CTA */
-.boton-cta {
-    border-radius: 30px;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.boton-cta:hover {
-    transform: translateY(-3px) scale(1.02);
-}
-
-/* Sección de inicio mejorada */
+/* NUEVA SECCIÓN DE INICIO ELEGANTE Y MODERNA */
 #Inicio {
     display: flex;
     flex-direction: column;
+    padding: 120px 5% 80px;
+    min-height: 90vh;
+    background: linear-gradient(120deg, #ffffff, #f5f9ff);
+}
+
+.hero-container {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url("/assets/img/Trabajando\ en\ casa.png");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Efecto parallax */
-    color: white;
-    padding: 20px;
-    overflow: hidden;
+    max-width: 1300px;
+    margin: 0 auto;
+    gap: 50px;
 }
 
-#Inicio h1 {
-    font-size: 2.8rem;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    max-width: 800px;
+.hero-content {
+    flex: 1;
+    max-width: 600px;
 }
 
-#Inicio p {
-    font-size: 1.3rem;
+.hero-content h1 {
+    font-size: 3.3rem;
+    line-height: 1.2;
     margin-bottom: 25px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    max-width: 700px;
+    color: #1a1a1a;
+    font-weight: 700;
 }
 
+.highlight-text {
+    background: linear-gradient(to right, #004AAD, #0067FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.hero-image {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-image {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    transition: transform 0.5s ease;
+}
+
+.main-image:hover {
+    transform: translateY(-10px);
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.shape-1 {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(45deg, #f1f5ff, #e4edff);
+    top: -40px;
+    right: 40px;
+    z-index: 1;
+}
+
+.shape-2 {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(45deg, #e1e9ff, #d4e2ff);
+    bottom: -20px;
+    left: 30px;
+    z-index: 1;
+}
+
+/* CTA buttons mejorados */
 .cta-buttons {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
     margin-bottom: 30px;
 }
 
 .boton-cta {
     display: inline-block;
-    padding: 14px 30px;
-    background: linear-gradient(135deg, #007bff, #0056b3);
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #004AAD, #0067FF);
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     border-radius: 30px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+    transition: all 0.4s ease;
+    box-shadow: 0 6px 15px rgba(0, 74, 173, 0.3);
     border: none;
+    letter-spacing: 0.5px;
 }
 
 .boton-cta:hover {
-    background: linear-gradient(135deg, #0056b3, #003d80);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
+    box-shadow: 0 10px 25px rgba(0, 74, 173, 0.4);
 }
 
 .boton-secundario {
     display: inline-block;
-    padding: 14px 30px;
+    padding: 15px 30px;
     background: transparent;
-    color: white;
+    color: #004AAD;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     border-radius: 30px;
     transition: all 0.3s ease;
-    border: 2px solid white;
+    border: 1px solid #004AAD;
+    letter-spacing: 0.5px;
 }
 
 .boton-secundario:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 74, 173, 0.08);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }
 
-/* Beneficios mejorados con iconos */
-.beneficios {
+/* Stats cards elegantes */
+.stats-container {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-top: 50px;
-    width: 100%;
-    max-width: 1000px;
+    gap: 25px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.beneficios div {
+.stat-card {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 16px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    border-radius: 12px;
-    width: 200px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
+    width: 220px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #f0f0f0;
 }
 
-.beneficios div::before {
-    font-family: 'boxicons';
+.stat-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card i {
     font-size: 2.5rem;
-    display: block;
-    margin-bottom: 10px;
-    color: #007bff;
+    color: #004AAD;
+    margin-bottom: 15px;
 }
 
-.beneficios div:nth-child(1)::before {
-    content: '\ec1c'; /* Icono de personas */
+.stat-card h2 {
+    font-size: 2rem;
+    margin: 0 0 10px 0;
+    background: linear-gradient(to right, #004AAD, #0067FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
-.beneficios div:nth-child(2)::before {
-    content: '\ea21'; /* Icono de documentos/proyectos */
-}
-
-.beneficios div:nth-child(3)::before {
-    content: '\e96c'; /* Icono de seguridad/escudo */
-}
-
-.beneficios div:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-}
-
-.beneficios h2 {
-    font-size: 1.8rem;
-    margin: 0 0 5px 0;
-    color: white;
-}
-
-.beneficios p {
+.stat-card p {
     font-size: 1rem;
     margin: 0;
-    color: #e0e0e0;
+    color: #555;
 }
 
-/* Nueva sección: Cómo Funciona */
 /* Mejoras para la sección Cómo Funciona */
 #ComoFunciona {
     padding: 100px 20px;
@@ -393,7 +377,7 @@ nav ul li a:hover::after {
 #ComoFunciona h2 {
     font-size: 2.2rem;
     margin-bottom: 15px;
-    color: #003366;
+    color: #1a1a1a;
     position: relative;
     display: inline-block;
     padding-bottom: 10px;
@@ -407,12 +391,12 @@ nav ul li a:hover::after {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background-color: #004AAD;
+    background: linear-gradient(to right, #004AAD, #0067FF);
 }
 
 #ComoFunciona > p {
     font-size: 1.1rem;
-    color: #444;
+    color: #555;
     margin-bottom: 60px;
     max-width: 800px;
     margin-left: auto;
@@ -433,8 +417,8 @@ nav ul li a:hover::after {
 .paso {
     background: white;
     padding: 40px 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
     text-align: center;
     width: 280px;
     position: relative;
@@ -442,11 +426,12 @@ nav ul li a:hover::after {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid #f0f0f0;
 }
 
 .paso:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
 }
 
 .paso-numero {
@@ -456,7 +441,7 @@ nav ul li a:hover::after {
     transform: translateX(-50%);
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #007bff, #0056b3);
+    background: linear-gradient(135deg, #004AAD, #0067FF);
     color: white;
     border-radius: 50%;
     display: flex;
@@ -464,7 +449,7 @@ nav ul li a:hover::after {
     justify-content: center;
     font-weight: bold;
     font-size: 1.2rem;
-    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 74, 173, 0.3);
     z-index: 1;
 }
 
@@ -475,64 +460,32 @@ nav ul li a:hover::after {
 }
 
 .paso h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-bottom: 15px;
-    color: #0056b3;
+    color: #1a1a1a;
 }
 
 .paso p {
     color: #555;
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.6;
 }
 
 .cta-container {
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
-/* Añadir media queries para hacer la sección responsiva */
-@media (max-width: 992px) {
-    .pasos-container {
-        gap: 20px;
-    }
-    
-    .paso {
-        width: calc(50% - 20px);
-        max-width: 280px;
-    }
-}
-
-@media (max-width: 768px) {
-    #ComoFunciona {
-        padding: 70px 15px;
-    }
-    
-    .pasos-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .paso {
-        width: 100%;
-        max-width: 320px;
-        margin-bottom: 30px;
-    }
-    
-    .paso-numero {
-        top: -15px;
-    }
-}
 /* Mejora de la sección Servicios */
 #Servicios {
     text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(135deg, #dbeafe, #e0f2fe);
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #f5f9ff, #eef7ff);
 }
 
 #Servicios h2 {
     font-size: 2.2rem;
     margin-bottom: 15px;
-    color: #003366;
+    color: #1a1a1a;
     position: relative;
     display: inline-block;
     padding-bottom: 10px;
@@ -546,13 +499,13 @@ nav ul li a:hover::after {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background-color: #004AAD;
+    background: linear-gradient(to right, #004AAD, #0067FF);
 }
 
 #Servicios > p {
     font-size: 1.1rem;
-    color: #444;
-    margin-bottom: 40px;
+    color: #555;
+    margin-bottom: 60px;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -562,23 +515,25 @@ nav ul li a:hover::after {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 30px;
     max-width: 1200px;
     margin: auto;
 }
 
 .servicio {
     background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
     text-align: center;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    width: 230px;
+    width: 200px;
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    border: 1px solid #f0f0f0;
 }
 
 .servicio::before {
@@ -588,39 +543,66 @@ nav ul li a:hover::after {
     left: 0;
     width: 100%;
     height: 5px;
-    background: linear-gradient(90deg, #004AAD, #007bff);
+    background: linear-gradient(90deg, #004AAD, #0067FF);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s ease;
+}
+
+.servicio:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
 }
 
 .servicio:hover::before {
     transform: scaleX(1);
 }
 
-.servicio img {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    transition: transform 0.5s ease;
-    position: relative;
-    left: 40px;
+.servicio-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(to top right, #e1e9ff, #f1f5ff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.servicio:hover .servicio-icon {
+    background: linear-gradient(135deg, #004AAD, #0067FF);
+}
+
+.servicio-icon i {
+    font-size: 2.5rem;
+    color: #004AAD;
+    transition: all 0.3s ease;
+}
+
+.servicio:hover .servicio-icon i {
+    color: white;
 }
 
 .servicio h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: #0056b3;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #1a1a1a;
     position: relative;
     padding-bottom: 8px;
 }
 
+.servicio p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
 .ver-mas {
-    color: #0056b3;
+    color: #004AAD;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -636,27 +618,27 @@ nav ul li a:hover::after {
 }
 
 .ver-mas:hover {
-    color: #003d80;
+    color: #0067FF;
 }
 
 .ver-mas:hover i {
-    transform: translateX(3px);
+    transform: translateX(5px);
 }
 
 .ver-todos-container {
-    margin-top: 40px;
+    margin-top: 60px;
 }
 
 .ver-todos {
     display: inline-flex;
     align-items: center;
-    color: #0056b3;
+    color: #004AAD;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1rem;
-    gap: 5px;
-    padding: 12px 25px;
-    border: 1px solid #0056b3;
+    gap: 10px;
+    padding: 15px 30px;
+    border: 1px solid #004AAD;
     border-radius: 30px;
     transition: all 0.3s ease;
 }
@@ -667,15 +649,15 @@ nav ul li a:hover::after {
 }
 
 .ver-todos:hover {
-    background: #0056b3;
+    background: linear-gradient(135deg, #004AAD, #0067FF);
     color: white;
+    box-shadow: 0 6px 15px rgba(0, 74, 173, 0.3);
 }
 
 .ver-todos:hover i {
-    transform: translateX(3px);
+    transform: translateX(5px);
 }
 
-/*footer */
 footer {
     background: #002244;
     color: white;
@@ -822,3 +804,4 @@ footer {
 .footer-legal a:hover {
     color: #007bff;
 }
+
