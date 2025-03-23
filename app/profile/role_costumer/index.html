@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/role_profile.css">
+    <link rel="icon" href="icons/icon.jpg">
+    <title>FlexiWork | Crear Perfil Cliente</title>
+</head>
+<body>
+    <div class="container-form profile">
+        <div class="information">
+            <div class="info-childs">
+                <h2>¡Completa tu perfil de cliente!</h2>
+                <p>Tu perfil es fundamental para encontrar los mejores freelancers que se adapten a tus necesidades y proyectos.</p>
+                <div class="profile-images">
+                    <div class="cover-image-container">
+                        <i class='bx bx-image-add'></i>
+                    </div>
+                    <div class="profile-image-container">
+                        <i class='bx bx-user-circle'></i>
+                    </div>
+                    <p class="image-label">Tu perfil empresarial</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Crear tu perfil de cliente</h2>
+                <p>Completa la información para encontrar freelancers que se ajusten a tus proyectos</p>
+                <form action="" class="form" method="POST" enctype="multipart/form-data">
+                    <!-- Imágenes de perfil y portada -->
+                    <div class="form-group">
+                        <label for="profile-image" class="form-label">Foto de perfil</label>
+                        <div class="file-upload">
+                            <label for="profile-image" class="file-input-label">
+                                <i class='bx bx-user-circle'></i>
+                                <span>Seleccionar imagen de perfil</span>
+                            </label>
+                            <input type="file" name="profile-image" id="profile-image" accept="image/*">
+                            <div class="file-name" id="profile-image-name">Ningún archivo seleccionado</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cover-image" class="form-label">Imagen de portada</label>
+                        <div class="file-upload">
+                            <label for="cover-image" class="file-input-label">
+                                <i class='bx bx-image-add'></i>
+                                <span>Seleccionar imagen de portada</span>
+                            </label>
+                            <input type="file" name="cover-image" id="cover-image" accept="image/*">
+                            <div class="file-name" id="cover-image-name">Ningún archivo seleccionado</div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <!-- Descripción -->
+                    <div class="form-group">
+                        <label for="description" class="form-label">Descripción del cliente/empresa</label>
+                        <div class="textarea-wrapper">
+                            <i class='bx bx-edit-alt'></i>
+                            <textarea name="description" id="description" placeholder="Describe tu empresa, tus proyectos habituales o los servicios que sueles necesitar..." required></textarea>
+                        </div>
+                    </div>
+                    
+                
+                    
+                    
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="secondary-button" onclick="window.location.href='index.html'">Cancelar</button>
+                        <input type="submit" value="Guardar Perfil">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Script para mostrar los nombres de los archivos seleccionados
+        document.getElementById('profile-image').addEventListener('change', function() {
+            const fileName = this.files[0]?.name || 'Ningún archivo seleccionado';
+            document.getElementById('profile-image-name').textContent = fileName;
+        });
+        
+        document.getElementById('cover-image').addEventListener('change', function() {
+            const fileName = this.files[0]?.name || 'Ningún archivo seleccionado';
+            document.getElementById('cover-image-name').textContent = fileName;
+        });
+    </script>
+</body>
+</html>
