@@ -3,18 +3,15 @@
   "version": "1.0.0",
   "description": "Trabajo final de la materia",
   "scripts": {
-    "dev": "parcel ./index.html",
-    "build": "parcel build ./index.html"
+    "dev": "vite",
+    "build": "vite build"
   },
   "devDependencies": {
-    "parcel": "2.14.1"
+    "vite": "6.2.2"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "@swc/core",
-      "lmdb",
-      "msgpackr-extract"
+      "esbuild"
     ]
   }
 }

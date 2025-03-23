@@ -1,15 +1,13 @@
-const protectedRoutes = ['/app/explore/index.html'];
-const invalidForAuth = ['/auth/login/index.html', '/auth/register/index.html'];
-const URL = 'https://api-rest-emprendi.onrender.com/auth/verify-session';
-
-const session = localStorage.getItem('__session');
+const url = 'https://api-rest-emprendi.onrender.com/auth/verify-session';
 
 export async function isAuth() {
+    const session = localStorage.getItem('__session');
+    
     if (!session) return {
         isAuth: false
     }
     
-    const response = await fetch(URL, {
+    const response = await fetch(url, {
         method: 'POST',
         headers: {
             Authorization: `Bearer ${session}`
