@@ -1,7 +1,7 @@
 const loginForm = document.getElementById('login-form');
 const errorContainer = document.getElementById("error");
 const linkEl = document.getElementById('navigate');
-const URL = 'https://api-rest-emprendi.onrender.com/auth/signin';
+const url = 'https://api-rest-emprendi.onrender.com/auth/signin';
 let error = null;
 
 console.log(`${location.hostname}:${location.port}/app/app.html`);
@@ -34,7 +34,7 @@ loginForm.addEventListener('submit', async (event) => {
 
     const body = JSON.stringify(inputs);
 
-    const resultado = await fetch(URL, {
+    const resultado = await fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

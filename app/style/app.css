@@ -98,6 +98,13 @@ body {
     width: 100%;
 }
 
+.icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
 .profile-icon {
     background: linear-gradient(135deg, var(--secondary-blue), var(--accent-blue));
     width: 42px;
@@ -115,6 +122,19 @@ body {
 .profile-icon:hover {
     transform: scale(1.08);
     box-shadow: 0 5px 15px rgba(0, 180, 216, 0.4);
+}
+
+.logout-icon {
+    padding: 3px;
+    color: var(--primary-blue);
+    margin-top: 8px;
+    transition: var(--transition-normal);
+    cursor: pointer;
+}
+
+.logout-icon:hover {
+    transform: scale(1.2);
+    color: var(--accent-blue);
 }
 
 /* Main Container Styles  */
