@@ -1,5 +1,6 @@
 const loginForm = document.getElementById('login-form');
 const errorContainer = document.getElementById("error");
+const linkEl = document.getElementById('navigate');
 const URL = 'https://api-rest-emprendi.onrender.com/auth/signin';
 let error = null;
 
@@ -60,5 +61,6 @@ loginForm.addEventListener('submit', async (event) => {
     const { sessionId } = json.data;
 
     localStorage.setItem('__session', sessionId);
-    window.location.assign('/app/explore/index.html');
+    linkEl.setAttribute('href', '../../app/explore/index.html');
+    linkEl.click();
 });
