@@ -4,7 +4,8 @@ export async function isAuth() {
     const session = localStorage.getItem('__session');
     
     if (!session) return {
-        isAuth: false
+        isUserAuth: false,
+        session: null
     }
     
     const response = await fetch(url, {
@@ -15,10 +16,12 @@ export async function isAuth() {
     });
 
     if (!response.ok) return {
-        isAuth: false
+        isUserAuth: false,
+        session: null
     }
 
     return {
-        isAuth: true
+        isUserAuth: true,
+        session
     }
 }
