@@ -18,7 +18,7 @@ export default defineConfig({
         pay: resolve(__dirname, 'app/pay/method/index.html'),
         paySuccess: resolve(__dirname, 'app/pay/success/index.html'),
         profileCreate: resolve(__dirname, 'app/profile/create/index.html'),
-        profileMe: resolve(__dirname, 'app/profile/me/index.html'),
+        profileMe: resolve(__dirname, 'app/profile/me/costumer/index.html'),
         profileViewUse: resolve(__dirname, 'app/profile/view_usu/index.html')
       },
     },
