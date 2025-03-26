@@ -1,7 +1,12 @@
 import { isAuth } from './auth.js';
 
 (async () => {
-    const protectedRoutes = ['/app/explore/index.html'];
+    const protectedRoutes = [
+        '/app/explore/index.html',
+        '/app/profile/create/index.html',
+        '/app/profile/create/freelancer-profile/index.html',
+        '/app/profile/create/customer-profile/index.html'
+    ];
     const invalidForAuth = ['/auth/login/index.html', '/auth/register/index.html'];
 
     const { isUserAuth } = await isAuth();

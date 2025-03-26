@@ -9,7 +9,6 @@
     <meta name="keywords" content="Freelancing, freelancers, trabajo online, contratar freelancers, proyectos remotos">
     <meta name="author" content="FlexiWork">
     <link rel="stylesheet" href="app/style/style.css">
-    
     <title>FlexiWork | Encuentra al freelancer perfecto para tu proyecto</title>
 </head>
 <body>
@@ -28,8 +27,7 @@
                 <li><a href="#ComoFunciona">Cómo Funciona</a></li>
                 <li><a href="#Servicios">Servicios</a></li>
                 <li><a href="#Contacto">Contacto</a></li>
-                <li class="login-btn"><a href="auth/login/index.html" target="_blank">Iniciar Sesión</a></li>
-                <li class="register-btn"><a href="auth/register/index.html" target="_blank">Registrarse</a></li>
+                <div id='dynamic-buttons' style='display: flex; gap: 10px;'></div>
             </ul>
             <div class="menu-toggle">
                 <i class='bx bx-menu'></i>
@@ -198,6 +196,7 @@
         </div>
     </footer>
 
+    <script type="module" src="./app/scripts/dynamicButtonsIndex.js"></script>
     <script>
         // Script para manejar el menú móvil
         document.querySelector('.menu-toggle').addEventListener('click', function() {

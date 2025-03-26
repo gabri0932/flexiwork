@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../style/role_profile.css">
     <link rel="icon" href="icons/icon.jpg">
     <title>FlexiWork | Crear Perfil Freelancer</title>
+    <script defer type="module" src="../../../../auth/scripts/validateAuth.js"></script>
 </head>
 <body>
     <div class="container-form profile">
@@ -30,7 +31,8 @@
             <div class="form-information-childs">
                 <h2>Crear tu perfil de freelancer</h2>
                 <p>Completa la información para destacar tus habilidades y servicios</p>
-                <form action="" class="form" method="POST" enctype="multipart/form-data">
+                <form id='form' class="form" method="POST" enctype="multipart/form-data">
+                    <input type="text" name='role' value='freelancer' hidden>
                     <!-- Imágenes de perfil y portada -->
                     <div class="form-group">
                         <label for="profile-image" class="form-label">Foto de perfil</label>
@@ -70,23 +72,7 @@
                         <label for="technologies" class="form-label">Tecnologías que dominas</label>
                         <div class="select-wrapper">
                             <i class='bx bx-code-alt'></i>
-                            <select name="technologies" id="technologies" multiple required>
-                                <option value="html">HTML/CSS</option>
-                                <option value="javascript">JavaScript</option>
-                                <option value="react">React</option>
-                                <option value="angular">Angular</option>
-                                <option value="vue">Vue.js</option>
-                                <option value="node">Node.js</option>
-                                <option value="php">PHP</option>
-                                <option value="python">Python</option>
-                                <option value="ruby">Ruby</option>
-                                <option value="java">Java</option>
-                                <option value="csharp">C#</option>
-                                <option value="wordpress">WordPress</option>
-                                <option value="mobile">Desarrollo Móvil</option>
-                                <option value="database">Bases de Datos</option>
-                                <option value="design">Diseño UI/UX</option>
-                            </select>
+                            <select name="technologies" id="technologies" multiple required></select>
                             <i class='bx bx-chevron-down arrow-icon'></i>
                         </div>
                         <p class="field-help">Mantén presionado Ctrl (o Cmd en Mac) para seleccionar múltiples opciones</p>
@@ -97,21 +83,7 @@
                         <label for="services" class="form-label">Servicios que ofreces</label>
                         <div class="select-wrapper">
                             <i class='bx bx-briefcase'></i>
-                            <select name="services" id="services" multiple required>
-                                <option value="web">Desarrollo Web</option>
-                                <option value="app">Desarrollo de Aplicaciones</option>
-                                <option value="ecommerce">E-commerce</option>
-                                <option value="design">Diseño Gráfico</option>
-                                <option value="ux">Diseño UX/UI</option>
-                                <option value="marketing">Marketing Digital</option>
-                                <option value="seo">SEO</option>
-                                <option value="content">Creación de Contenido</option>
-                                <option value="translation">Traducción</option>
-                                <option value="consulting">Consultoría</option>
-                                <option value="writing">Redacción</option>
-                                <option value="data">Análisis de Datos</option>
-                                <option value="support">Soporte Técnico</option>
-                            </select>
+                            <select name="services" id="services" multiple required></select>
                             <i class='bx bx-chevron-down arrow-icon'></i>
                         </div>
                         <p class="field-help">Mantén presionado Ctrl (o Cmd en Mac) para seleccionar múltiples opciones</p>
@@ -126,7 +98,9 @@
                         </div>
                     </div>
 
-            
+                    <div style='width: 100%; display: flex; justify-content: center;'>
+                        <span id='errorSpan' ></span>
+                    </div>
                     
                     <div class="form-buttons">
                         <button type="button" class="secondary-button" onclick="window.location.href='index.html'">Cancelar</button>
@@ -137,6 +111,8 @@
         </div>
     </div>
 
+    <script type="module" src="../../scripts/setSkillsAndServicesToSelects.js"></script>
+    <script type="module" src="../../scripts/profilesCreationSubmit.js"></script>
     <script>
         // Script para mostrar los nombres de los archivos seleccionados
         document.getElementById('profile-image').addEventListener('change', function() {

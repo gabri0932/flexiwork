@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../style/role_profile.css">
     <link rel="icon" href="icons/icon.jpg">
     <title>FlexiWork | Crear Perfil Cliente</title>
+    <script defer type="module" src="../../../../auth/scripts/validateAuth.js"></script>
 </head>
 <body>
     <div class="container-form profile">
@@ -30,7 +31,8 @@
             <div class="form-information-childs">
                 <h2>Crear tu perfil de cliente</h2>
                 <p>Completa la información para encontrar freelancers que se ajusten a tus proyectos</p>
-                <form action="" class="form" method="POST" enctype="multipart/form-data">
+                <form id='form' class="form" method="POST" enctype="multipart/form-data">
+                    <input type="text" name='role' value='customer' hidden>
                     <!-- Imágenes de perfil y portada -->
                     <div class="form-group">
                         <label for="profile-image" class="form-label">Foto de perfil</label>
@@ -66,10 +68,10 @@
                             <textarea name="description" id="description" placeholder="Describe tu empresa, tus proyectos habituales o los servicios que sueles necesitar..." required></textarea>
                         </div>
                     </div>
-                    
-                
-                    
-                    
+
+                    <div style='width: 100%; display: flex; justify-content: center;'>
+                        <span id='errorSpan' ></span>
+                    </div>
                     
                     <div class="form-buttons">
                         <button type="button" class="secondary-button" onclick="window.location.href='index.html'">Cancelar</button>
@@ -80,6 +82,7 @@
         </div>
     </div>
 
+    <script type="module" src="../../scripts/profilesCreationSubmit.js"></script>
     <script>
         // Script para mostrar los nombres de los archivos seleccionados
         document.getElementById('profile-image').addEventListener('change', function() {
