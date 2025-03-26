@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Trabajo final de la materia",
   "scripts": {
-    "dev": "vite",
-    // "build": "vite build"
+    "dev": "vite"
   },
   "devDependencies": {
     "vite": "6.2.2"
