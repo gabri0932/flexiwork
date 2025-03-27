@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../style/me.css">
+    
+    <link rel="stylesheet" href="../../">
+    <title>Perfil de Usuario - FlexiWork</title>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="../../../assets/img/Logo FlexiWork ultimo.png" alt="Logo FlexiWork" class="flexiwork">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../../explore/index.html"><i class='bx bx-home'></i> Inicio</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <div class="profile-container">
+        <!-- Barra lateral izquierda -->
+        <aside class="profile-sidebar">
+            <div class="profile-cover">
+                <img src="https://via.placeholder.com/150" alt="Foto de perfil" class="profile-avatar">
+            </div>
+            <div class="profile-info">
+                <h2 class="profile-name">Random</h2>
+                <p class="profile-title">Desarrollador Web Full Stack</p>
+                <span class="availability-status">
+                    <span class="availability-indicator"></span>
+                    Disponible para proyectos
+                </span>
+            </div>
+            
+            <ul class="profile-links">
+                <li><a href="#"><i class='bx bx-envelope'></i><b>Correo:</b>name@gmail.com</a></li>
+                <li><a href="#"><i class='bx bx-phone'></i><b>Numero:</b> 1234-1234-1234</a></li>
+                <li><a href="#"><i class='bx bxs-bank'></i><b>Precio:</b> 5$</a></li>
+            </ul>
+        </aside>
+        
+        <!-- Contenido principal del perfil -->
+        <main class="profile-content">
+            <div class="profile-tabs">
+                <div class="profile-tab active">Resumen</div>
+            </div>
+            
+            <!-- Sección de información -->
+            <section class="profile-section">
+                <div class="section-header">
+                    <h3 class="section-title"><i class='bx bx-info-circle'></i> Acerca de mí</h3>
+                    <button class="section-action"><i class='bx bx-edit'></i> Editar</button>
+                </div>
+                <p>Desarrollador web con más de 5 años de experiencia en la creación de aplicaciones web y móviles. Me especializo en tecnologías front-end y back-end, con un enfoque en crear experiencias de usuario excepcionales y soluciones escalables.</p>
+                <p>Mi objetivo es ayudar a empresas y startups a convertir sus ideas en productos digitales funcionales y atractivos. Me apasiona el código limpio, el diseño intuitivo y las soluciones creativas.</p>
+            </section>
+            
+            <!-- Sección de habilidades -->
+            <section class="profile-section">
+                <div class="section-header">
+                    <h3 class="section-title"><i class='bx bx-briefcase-alt-2'></i> Servicios</h3>
+                    <button class="section-action"><i class='bx bx-plus'></i> Añadir</button>
+                </div>
+                <div class="skill-tags">
+                    <div class="skill-tag"><i class='bx bxl-visual-studio'></i> Desarrollo de Software</div>
+                </div>
+                <div class="section-header">
+                    <h3 class="section-title"><i class='bx bx-code-alt'></i> Habilidades</h3>
+                    <button class="section-action"><i class='bx bx-plus'></i> Añadir</button>
+                </div>
+                
+                <div class="skill-tags">
+                    <div class="skill-tag"><i class='bx bxl-html5'></i> HTML5</div>
+                    <div class="skill-tag"><i class='bx bxl-css3'></i> CSS3</div>
+                    <div class="skill-tag"><i class='bx bxl-javascript'></i> JavaScript</div>
+                    <div class="skill-tag"><i class='bx bxl-react'></i> React</div>
+                    <div class="skill-tag"><i class='bx bxl-nodejs'></i> Node.js</div>
+                    <div class="skill-tag"><i class='bx bxl-python'></i> Python</div>
+                </div>
+            </div>
+
+                    
+        </main>
+    </div>
+    <form action="">
+        <div class="form-group">
+            <label for="profile-image" class="form-label">Foto de perfil</label>
+            <div class="file-upload">
+                <label for="profile-image" class="file-input-label">
+                    <i class='bx bx-user-circle'></i>
+                    <span>Seleccionar imagen de perfil</span>
+                </label>
+                <input type="file" name="profile-image" id="profile-image" accept="image/*">
+                <div class="file-name" id="profile-image-name">Ningún archivo seleccionado</div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="cover-image" class="form-label">Imagen de portada</label>
+            <div class="file-upload">
+                <label for="cover-image" class="file-input-label">
+                    <i class='bx bx-image-add'></i>
+                    <span>Seleccionar imagen de portada</span>
+                </label>
+                <input type="file" name="cover-image" id="cover-image" accept="image/*">
+                <div class="file-name" id="cover-image-name">Ningún archivo seleccionado</div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

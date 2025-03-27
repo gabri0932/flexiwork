@@ -9,12 +9,29 @@ form.addEventListener('submit', async (event) => {
     const { session } = await isAuth();
     unsetError();
 
-    const inputs = new Object.fromEntries(new FormData(event.target));
+    const inputs = Object.fromEntries(new FormData(event.target));
 
-    // Aquí las validaciones y los establecimientos de los errores con setError();
+    const {description, technologies, services, coin, hourly_rate} = inputs;
+    let errores = []
 
     if (inputs.role === 'freelancer') {
-        // Ya sabes.
+        if (description.length < 100) {
+            setError("La descripción es muy corta.");
+        }
+        if (description.length > 250) {
+            setError("La descripción es muy larga.");
+        }
+        if (services.length > 1) {
+            setError("Solo puedes seleccionar un servicio.");
+        }
+    }else{
+        if (description.length < 100) {
+            setError("La descripción es muy corta.");
+        }
+        if (description.length > 250) {
+            setError("La descripción es muy larga.");
+        }
+
     }
 
     // Y aquí las del role === 'customer', si quieres pon un else, pero ya se entiende.
