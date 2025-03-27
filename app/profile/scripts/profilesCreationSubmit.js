@@ -50,13 +50,16 @@ form.addEventListener('submit', async (event) => {
         const skills = availableSkills.map(({ identifier }) => identifier);
         const services = availableServices.map(({ identifier }) => identifier);
         
-        const { service, currency, amount } = inputs;
+        const { service, currency, amount, phone } = inputs;
 
         if (!services.includes(service)) {
             setError('El servicio ingresado no existe.');
             return;
         }
-
+        if(isNaN(Number(phone))){
+            setError("Solo se aceptan numeros")
+            return
+        }
         if (technologiesSelect.length < 1) {
             setError('Debe seleccionar al menos una tecnología.');
             return;
@@ -69,11 +72,11 @@ form.addEventListener('submit', async (event) => {
             return;
         }
 
-        if (!['DOP', 'USD', 'EUR'].includes(currency)) {
+        if (!['dop', 'usd', 'eur'].includes(currency)) {
             setError('El tipo de moneda seleccionado no está disponible.');
             return;
         }
-
+        
         if (isNaN(Number(amount))) {
             setError('La cantidad de dinero debe ser un número.');
             return
@@ -86,7 +89,7 @@ form.addEventListener('submit', async (event) => {
             price: {
                 currency,
                 amount: Number(amount)
-            }
+            },phone
         };
     }
 
