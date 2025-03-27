@@ -11,6 +11,10 @@ const counterEl = document.getElementById('contador');
 descriptionInput.addEventListener('input', () => {
     const length = descriptionInput.value.length;
     counterEl.textContent = `${length}/250`;
+    if (length > 249) {
+        descriptionInput.value = descriptionInput.value.substring(0, 249);
+        length = 249;
+    }
 });
 
 form.addEventListener('submit', async (event) => {
