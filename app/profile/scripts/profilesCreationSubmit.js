@@ -11,27 +11,31 @@ form.addEventListener('submit', async (event) => {
 
     const inputs = Object.fromEntries(new FormData(event.target));
 
-    const {description, technologies, services, coin, hourly_rate} = inputs;
+    const { description, technologies, services, coin, hourly_rate } = inputs;
     let errores = []
 
     if (inputs.role === 'freelancer') {
         if (description.length < 100) {
             setError("La descripción es muy corta.");
+            return;
         }
         if (description.length > 250) {
             setError("La descripción es muy larga.");
+            return;
         }
         if (services.length > 1) {
             setError("Solo puedes seleccionar un servicio.");
+            return;
         }
-    }else{
+    } else {
         if (description.length < 100) {
             setError("La descripción es muy corta.");
+            return;
         }
         if (description.length > 250) {
             setError("La descripción es muy larga.");
+            return;
         }
-
     }
 
     // Y aquí las del role === 'customer', si quieres pon un else, pero ya se entiende.
