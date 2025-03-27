@@ -1,9 +1,8 @@
+import { getServices, getSkills } from './getSkillsAndServices.js';
+
 const servicesSelect = document.getElementById('services');
 const skillsSelect = document.getElementById('technologies');
 const parser = new DOMParser();
-
-const skillsEndpoint = 'https://api-rest-emprendi.onrender.com/profiles/skills';
-const servicesEndpoint = 'https://api-rest-emprendi.onrender.com/profiles/services';
 
 const errorOption = parser.parseFromString(
     '<option>Something went wrong.</option>',
@@ -17,26 +16,24 @@ const validOption = (value, text) => {
 }
 
 (async () => {
-    const servicesResponse = await fetch(servicesEndpoint);
+    const services = await getServices();
 
-    if (!servicesResponse.ok) {
+    if (!services) {
         servicesSelect.appendChild(errorOption)
     } else {
-        const json = await servicesResponse.json();
-        const { services } = json.data;
+        servicesSelect.appendChild(validOption('', 'Seleccionar'));
 
         services.forEach(service => {
             servicesSelect.appendChild(validOption(service.identifier, service.name))
         });
     }
 
-    const skillsResponse = await fetch(skillsEndpoint);
+    const skills = await getSkills();
 
-    if (!skillsResponse.ok) {
+    if (!skills) {
         skillsSelect.appendChild(errorOption);
     } else {
-        const json = await skillsResponse.json();
-        const { skills } = json.data;
+        skillsSelect.appendChild(validOption('', 'Seleccionar'));
 
         skills.forEach(skill => {
             skillsSelect.appendChild(validOption(skill.identifier, skill.name))

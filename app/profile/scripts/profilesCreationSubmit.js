@@ -1,8 +1,12 @@
 import { isAuth } from '../../../auth/scripts/auth.js';
+import { getServices } from './getSkillsAndServices.js';
+import { getSkills } from './getSkillsAndServices.js';
 
 const form = document.getElementById('form');
 const errorEl = document.getElementById('errorSpan');
-const endpoint = 'https://api-rest-emprendi.onrender.com/profiles';
+const createProfileEndpoint = 'https://api-rest-emprendi.onrender.com/profiles';
+
+let body = {};
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -10,52 +14,63 @@ form.addEventListener('submit', async (event) => {
     unsetError();
 
     const inputs = Object.fromEntries(new FormData(event.target));
-    const {amount, currency} = inputs
-    if(isNaN(Number(amount))){
-        setError("Tiene que ser un numero")
-        return
-    }
-    
-    const body ={
-        price: {
-            currency,
-            amount
-        }
+
+    // La description es un campo compartido, con validarlo una vez se valida en ambos.
+    const { description } = inputs;
+
+    if (description.length < 50) {
+        setError("La descripción es muy corta.");
+        return;
     }
 
-    const {description, technologies, services, } = inputs;
+    if (description.length > 250) {
+        setError("La descripción es muy larga.");
+        return;
+    }
+
+    body = { description };
 
     if (inputs.role === 'freelancer') {
-        if (description.length < 100) {
-            setError("La descripción es muy corta.");
+        const availableServices = await getServices();
+        const availableSkills = await getSkills();
+
+        if (!availableServices || !availableSkills) {
+            setError('Something went wrong. Try again later.');
             return;
         }
-        if (description.length > 250) {
-            setError("La descripción es muy larga.");
-            return;
-        }
+
+        // Skills y technologies quedan pendientes de validar.
+
+        const skills = availableSkills.map(({ identifier }) => identifier);
+        const services = availableServices.map(({ identifier }) => identifier);
         
-    } else {
-        if (description.length < 100) {
-            setError("La descripción es muy corta.");
+        const { technologies, service, currency, amount } = inputs;
+
+        if (!services.includes(service)) {
+            setError('El servicio ingresado no existe.');
             return;
         }
-        if (description.length > 250) {
-            setError("La descripción es muy larga.");
+
+        if (!['DOP', 'USD', 'EUR'].includes(currency)) {
+            setError('El tipo de moneda seleccionado no está disponible.');
             return;
         }
+
+        if (isNaN(Number(amount))) {
+            setError('La cantidad de dinero debe ser un número.');
+            return
+        }
+
+        body = { ...body, service, technologies, price: { currency, amount } };
     }
 
-    // Y aquí las del role === 'customer', si quieres pon un else, pero ya se entiende.
-    // Recuerda también después de establecer los errores hacer el return.
-
-    const response = await fetch(endpoint, {
+    const response = await fetch(createProfileEndpoint, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${session}`
         },
-        body: JSON.stringify(inputs)
+        body
     });
 
     if (!response.ok) {
@@ -63,7 +78,7 @@ form.addEventListener('submit', async (event) => {
         const message = response.status === 400 ? 'ERROR: Client side error.' : json.message;
 
         setError(message);
-        return; 
+        return;
     }
 
     location.replace('/app/explore/index.html');

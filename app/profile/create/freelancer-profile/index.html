@@ -35,7 +35,7 @@
                     <input type="text" name='role' value='freelancer' hidden>
                     <!-- Descripción -->
                     <div class="form-group">
-                        <label for="description" class="form-label">Descripción profesional</label>
+                        <label for="description" class="form-label">Descripción profesional (Mínimo 50 caracteres).</label>
                         <div class="textarea-wrapper">
                             <i class='bx bx-edit-alt'></i>
                             <textarea name="description" id="description" placeholder="Describe tu experiencia, habilidades y lo que te hace único..." required></textarea>
@@ -57,7 +57,7 @@
                         <label for="services" class="form-label">Servicio que ofreces</label>
                         <div class="select-wrapper">
                             <i class='bx bx-briefcase'></i>
-                            <select name="services" id="services" multiple required></select>
+                            <select name="services" id="services" required></select>
                             <i class='bx bx-chevron-down arrow-icon'></i>
                         </div>
                     </div>
@@ -67,7 +67,8 @@
                         <div class="select-wrapper">
                             <i class='bx bxs-coin'></i>
                             <select name="currency" id="currency">
-                                <option value="DOM">DOM</option>
+                                <option value="">Seleccionar</option>
+                                <option value="DOP">DOP</option>
                                 <option value="USD">USD</option>
                                 <option value="EUR">EUR</option>
                             </select>
@@ -75,15 +76,15 @@
                     </div>
                     <!-- Tarifa por hora -->
                     <div class="form-group">
-                        <label for="hourly-rate" class="form-label">Tarifa por hora (USD)</label>
+                        <label for="hourly-rate" class="form-label">Tarifa por hora</label>
                         <div class="input-field">
                             <i class='bx bx-dollar'></i>
                             <input type="number" name="amount" id="amount" placeholder="Ej. 25" min="5" required>
                         </div>
                     </div>
 
-                    <div style='width: 100%; display: flex; justify-content: center;'>
-                        <span id='errorSpan' ></span>
+                    <div style='width: 100%; display: flex; justify-content: center; color: red;'>
+                        <span id='errorSpan'></span>
                     </div>
                     
                     <div class="form-buttons">
