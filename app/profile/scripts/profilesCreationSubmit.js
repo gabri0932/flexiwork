@@ -15,7 +15,7 @@ form.addEventListener('submit', async (event) => {
         setError("Tiene que ser un numero")
         return
     }
-
+    
     const body ={
         price: {
             currency,
@@ -34,10 +34,7 @@ form.addEventListener('submit', async (event) => {
             setError("La descripción es muy larga.");
             return;
         }
-        if (services.length >= 2) {
-            setError("Solo puedes seleccionar un servicio.");
-            return;
-        }
+        
     } else {
         if (description.length < 100) {
             setError("La descripción es muy corta.");
