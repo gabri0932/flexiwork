@@ -20,7 +20,7 @@ export default defineConfig({
         profileCreate: resolve(__dirname, 'app/profile/create/index.html'),
         profileCreateFreelancer: resolve(__dirname, "app/profile/create/freelancer-profile/index.html"),
         profileCreateCostumer: resolve(__dirname, "app/profile/create/customer-profile/index.html"),
-        profileMeFreelanacer: resolve(__dirname, 'app/profile/me/freelancer/index.html'),
+        profileMeFreelanacer: resolve(__dirname, 'app/profile/me/index.html'),
         profileMeCostumer: resolve(__dirname, 'app/profile/me/costumer/index.html'),
         profileViewUse: resolve(__dirname, 'app/profile/view_usu/index.html')
       },
