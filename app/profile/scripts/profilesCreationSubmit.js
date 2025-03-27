@@ -10,9 +10,23 @@ form.addEventListener('submit', async (event) => {
     unsetError();
 
     const inputs = Object.fromEntries(new FormData(event.target));
+    const {amount, currency} = inputs
+    if(isNaN(Number(amount))){
+        setError("Tiene que ser un numero")
+        return
+    }if(!['EUR', 'DOP', 'USD'].includes(currency)){
+        setError('tipo de moneda incorrecto')
+        return
+    }
 
-    const { description, technologies, services, coin, hourly_rate } = inputs;
-    let errores = []
+    const body ={
+        price: {
+            currency,
+            amount
+        }
+    }
+
+    const {body: description, technologies, services, } = inputs;
 
     if (inputs.role === 'freelancer') {
         if (description.length < 100) {
