@@ -37,7 +37,7 @@ form.addEventListener('submit', async (event) => {
         return;
     }
 
-    body = { description };
+    let body = { description };
 
     if (inputs.role === 'freelancer') {
         const availableServices = await getServices();
