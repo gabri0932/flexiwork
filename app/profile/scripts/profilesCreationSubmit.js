@@ -15,8 +15,8 @@ form.addEventListener('submit', async (event) => {
     let errores = []
 
     if (inputs.role === 'freelancer') {
-        if (description.length < 100) {
-            setError("La descripción es muy corta.");
+        if (description.length < 20) {
+            setError("La descripción es muy corta. Usa al menos 20 caracteres");
         }
         if (description.length > 250) {
             setError("La descripción es muy larga.");
@@ -25,8 +25,8 @@ form.addEventListener('submit', async (event) => {
             setError("Solo puedes seleccionar un servicio.");
         }
     }else{
-        if (description.length < 100) {
-            setError("La descripción es muy corta.");
+        if (description.length < 20) {
+            setError("La descripción es muy corta. Usa al menos 20 caracteres");
         }
         if (description.length > 250) {
             setError("La descripción es muy larga.");
