@@ -15,10 +15,7 @@ form.addEventListener('submit', async (event) => {
         setError("Tiene que ser un numero")
         return
     }
-    if(!['EUR', 'DOP', 'USD'].includes(currency)){
-        setError('tipo de moneda incorrecto')
-        return
-    }
+
     const body ={
         price: {
             currency,
