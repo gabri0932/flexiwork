@@ -5,8 +5,14 @@ import { getSkills } from './getSkillsAndServices.js';
 const form = document.getElementById('form');
 const errorEl = document.getElementById('errorSpan');
 const createProfileEndpoint = 'https://api-rest-emprendi.onrender.com/profiles';
+const descriptionInput = document.getElementById('description');
+const counterEl = document.getElementById('contador');
 
-let body = {};
+descriptionInput.addEventListener('input', () => {
+    const length = descriptionInput.value.length;
+    counterEl.textContent = length;
+
+});
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
