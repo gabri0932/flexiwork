@@ -439,3 +439,115 @@ nav ul li a:hover {
         position: static;
     }
 }
+:root {
+    /* Existing variables... */
+    --upload-hover: #e3f2fd;
+    --upload-border: #90caf9;
+}
+
+/* File Upload Styling */
+.form-group {
+    margin-bottom: 1.5rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.form-group:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.file-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px dashed var(--upload-border);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.file-upload:hover {
+    background-color: var(--upload-hover);
+    border-color: var(--primary-blue);
+}
+
+.file-input-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: var(--secondary-blue);
+    font-weight: 500;
+}
+
+.file-input-label i {
+    font-size: 3rem;
+    color: var(--primary-blue);
+    transition: transform 0.3s ease;
+}
+
+.file-upload:hover .file-input-label i {
+    transform: scale(1.1);
+}
+
+.file-input-label span {
+    font-size: 1rem;
+}
+
+/* Hide default file input */
+input[type="file"] {
+    display: none;
+}
+
+.file-name {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Image Preview Styles */
+.image-preview {
+    margin-top: 1rem;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--shadow);
+    display: none;
+}
+
+.image-preview.active {
+    display: block;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .form-group {
+        padding: 1rem;
+    }
+
+    .file-upload {
+        padding: 1.5rem;
+    }
+
+    .file-input-label i {
+        font-size: 2.5rem;
+    }
+}
