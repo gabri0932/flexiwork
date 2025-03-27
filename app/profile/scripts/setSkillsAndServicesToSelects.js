@@ -1,6 +1,6 @@
 import { getServices, getSkills } from './getSkillsAndServices.js';
 
-const servicesSelect = document.getElementById('services');
+const servicesSelect = document.getElementById('service');
 const skillsSelect = document.getElementById('technologies');
 const parser = new DOMParser();
 

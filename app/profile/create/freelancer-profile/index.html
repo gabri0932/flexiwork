@@ -40,7 +40,7 @@
                             <i class='bx bx-edit-alt'></i>
                             <textarea name="description" id="description" placeholder="Describe tu experiencia, habilidades y lo que te hace único..." required></textarea>
                         </div>
-                        <p>Caracteres: <span id="contador">0</span></p>
+                        <p>Caracteres: <span id="contador">0/250</span></p>
                     </div>
                     <!-- Tecnologías -->
                     <div class="form-group">
@@ -55,10 +55,10 @@
                     
                     <!-- Servicios -->
                     <div class="form-group">
-                        <label for="services" class="form-label">Servicio que ofreces</label>
+                        <label for="service" class="form-label">Servicio que ofreces</label>
                         <div class="select-wrapper">
                             <i class='bx bx-briefcase'></i>
-                            <select name="services" id="services" required></select>
+                            <select name="service" id="service" required></select>
                             <i class='bx bx-chevron-down arrow-icon'></i>
                         </div>
                     </div>
@@ -69,9 +69,9 @@
                             <i class='bx bxs-coin'></i>
                             <select name="currency" id="currency">
                                 <option value="">Seleccionar</option>
-                                <option value="DOP">DOP</option>
-                                <option value="USD">USD</option>
-                                <option value="EUR">EUR</option>
+                                <option value="dop">DOP</option>
+                                <option value="usd">USD</option>
+                                <option value="eur">EUR</option>
                             </select>
                         </div>
                     </div>
@@ -99,6 +99,18 @@
 
     <script type="module" src="../../scripts/setSkillsAndServicesToSelects.js"></script>
     <script type="module" src="../../scripts/profilesCreationSubmit.js"></script>
-
+    <script>
+        const descriptionInput = document.getElementById('description');
+        const counterEl = document.getElementById('contador');
+        
+        descriptionInput.addEventListener('input', () => {
+            const length = descriptionInput.value.length;
+            counterEl.textContent = `${length}/250`;
+            if (length > 249) {
+                descriptionInput.value = descriptionInput.value.substring(0, 249);
+                length = 249;
+            }
+        });
+    </script>
 </body>
 </html>

@@ -4,18 +4,17 @@ import { getSkills } from './getSkillsAndServices.js';
 
 const form = document.getElementById('form');
 const errorEl = document.getElementById('errorSpan');
+const technologiesSelect = document.getElementById('technologies');
 const createProfileEndpoint = 'https://api-rest-emprendi.onrender.com/profiles';
-const descriptionInput = document.getElementById('description');
-const counterEl = document.getElementById('contador');
 
-descriptionInput.addEventListener('input', () => {
-    const length = descriptionInput.value.length;
-    counterEl.textContent = `${length}/250`;
-    if (length > 249) {
-        descriptionInput.value = descriptionInput.value.substring(0, 249);
-        length = 249;
-    }
-});
+let validatedInputs = {};
+let selectedTechnologies = [];
+
+if (technologiesSelect) {
+    technologiesSelect.addEventListener('change', (event) => {
+        selectedTechnologies = Array.from(event.target.selectedOptions, (opt) => opt.value);
+    });
+}
 
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -25,7 +24,7 @@ form.addEventListener('submit', async (event) => {
     const inputs = Object.fromEntries(new FormData(event.target));
 
     // La description es un campo compartido, con validarlo una vez se valida en ambos.
-    const { description } = inputs;
+    const { role, description } = inputs;
 
     if (description.length < 50) {
         setError("La descripción es muy corta.");
@@ -37,9 +36,9 @@ form.addEventListener('submit', async (event) => {
         return;
     }
 
-    let body = { description };
+    validatedInputs = { role, description };
 
-    if (inputs.role === 'freelancer') {
+    if (role === 'freelancer') {
         const availableServices = await getServices();
         const availableSkills = await getSkills();
 
@@ -48,15 +47,25 @@ form.addEventListener('submit', async (event) => {
             return;
         }
 
-        // Skills y technologies quedan pendientes de validar.
-
         const skills = availableSkills.map(({ identifier }) => identifier);
         const services = availableServices.map(({ identifier }) => identifier);
         
-        const { technologies, service, currency, amount } = inputs;
+        const { service, currency, amount } = inputs;
 
         if (!services.includes(service)) {
             setError('El servicio ingresado no existe.');
+            return;
+        }
+
+        if (technologiesSelect.length < 1) {
+            setError('Debe seleccionar al menos una tecnología.');
+            return;
+        }
+
+        const invalidTechnology = selectedTechnologies.find(tech => !skills.includes(tech));
+
+        if (invalidTechnology) {
+            setError(`La siguiente tecnología: "${invalidTechnology}", no es válida.`);
             return;
         }
 
@@ -70,7 +79,15 @@ form.addEventListener('submit', async (event) => {
             return
         }
 
-        body = { ...body, service, technologies, price: { currency, amount } };
+        validatedInputs = {
+            ...validatedInputs,
+            service,
+            technologies: selectedTechnologies,
+            price: {
+                currency,
+                amount: Number(amount)
+            }
+        };
     }
 
     const response = await fetch(createProfileEndpoint, {
@@ -79,7 +96,7 @@ form.addEventListener('submit', async (event) => {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${session}`
         },
-        body
+        body: JSON.stringify(validatedInputs)
     });
 
     if (!response.ok) {
