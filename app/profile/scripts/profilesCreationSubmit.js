@@ -26,7 +26,7 @@ form.addEventListener('submit', async (event) => {
         }
     }
 
-    const {body: description, technologies, services, } = inputs;
+    const {description, technologies, services, } = inputs;
 
     if (inputs.role === 'freelancer') {
         if (description.length < 100) {
