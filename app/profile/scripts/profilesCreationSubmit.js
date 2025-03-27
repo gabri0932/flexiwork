@@ -15,7 +15,10 @@ form.addEventListener('submit', async (event) => {
         setError("Tiene que ser un numero")
         return
     }
-    
+    if(!['EUR', 'DOP', 'USD'].includes(currency)){
+        setError('tipo de moneda incorrecto')
+        return
+    }
     const body ={
         price: {
             currency,
@@ -34,7 +37,7 @@ form.addEventListener('submit', async (event) => {
             setError("La descripción es muy larga.");
             return;
         }
-        if (services.length > 2) {
+        if (services.length >= 2) {
             setError("Solo puedes seleccionar un servicio.");
             return;
         }
