@@ -60,32 +60,14 @@
             <div class="sidebar-box">
                 <h3>Servicios</h3>
                 <div class="dropdown">
-                    <select>
-                        <option value="">Todos los servicios</option>
-                        <option value="web">Diseño Web</option>
-                        <option value="app">Desarrollo de Apps</option>
-                        <option value="design">Diseño Gráfico</option>
-                        <option value="marketing">Marketing Digital</option>
-                        <option value="seo">SEO</option>
-                        <option value="content">Creación de Contenido</option>
-                    </select>
+                    <select id='slt-services'></select>
                 </div>
             </div>
             
             <div class="sidebar-box">
                 <h3>Tecnologías</h3>
                 <div class="dropdown">
-                    <select>
-                        <option value="">Todas las tecnologías</option>
-                        <option value="react">React</option>
-                        <option value="angular">Angular</option>
-                        <option value="vue">Vue.js</option>
-                        <option value="node">Node.js</option>
-                        <option value="python">Python</option>
-                        <option value="django">Django</option>
-                        <option value="laravel">Laravel</option>
-                        <option value="wordpress">WordPress</option>
-                    </select>
+                    <select id='slt-technologies'></select>
                 </div>
             </div>
         </aside>
@@ -96,12 +78,14 @@
                 <p class="section-subtitle">Encuentra el profesional perfecto para tu proyecto</p>
             </div>
             
-            <div class="profiles-grid"></div>
+            <div class="profiles-grid" id='profiles'></div>
         </main>
     </div>
 
     <script type="module" src="./index.js"></script>
     <script type="module" src="../profile/scripts/explorePageButtonsBasedAuth.js"></script>
+    <script type="module" src="./getProfiles.js"></script>
+    <script type="module" src="./setServicesAndTechnologies.js"></script>
     <script>
         // Script para actualizar los valores de los sliders de precio
         document.getElementById('min-price').addEventListener('input', function() {

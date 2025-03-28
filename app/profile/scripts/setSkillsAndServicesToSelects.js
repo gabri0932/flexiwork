@@ -1,19 +1,8 @@
 import { getServices, getSkills } from './getSkillsAndServices.js';
+import { errorOption, validOption } from './options.js';
 
 const servicesSelect = document.getElementById('service');
 const skillsSelect = document.getElementById('technologies');
-const parser = new DOMParser();
-
-const errorOption = parser.parseFromString(
-    '<option>Something went wrong.</option>',
-    'text/html'
-).body.firstChild;
-const validOption = (value, text) => {
-    return parser.parseFromString(
-        `<option value=${value}>${text}</option>`,
-        'text/html'
-    ).body.firstChild;
-}
 
 (async () => {
     const services = await getServices();

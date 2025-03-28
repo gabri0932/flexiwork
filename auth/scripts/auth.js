@@ -1,12 +1,23 @@
 const url = 'https://api-rest-emprendi.onrender.com/auth/verify-session';
 
+let status = {
+    isUserAuth: false,
+    session: null
+}
+
 export async function isAuth() {
     const session = localStorage.getItem('__session');
     
-    if (!session) return {
-        isUserAuth: false,
-        session: null
+    if (!session) {
+        status = {
+            isUserAuth: false,
+            session: null
+        }
+
+        return status;
     }
+
+    if (status.isUserAuth && status.session) return status;
     
     const response = await fetch(url, {
         method: 'POST',
@@ -15,13 +26,19 @@ export async function isAuth() {
         }
     });
 
-    if (!response.ok) return {
-        isUserAuth: false,
-        session: null
+    if (!response.ok) {
+        status = {
+            isUserAuth: false,
+            session: null
+        }
+
+        return;
     }
 
-    return {
+    status = {
         isUserAuth: true,
         session
     }
+
+    return status;
 }
