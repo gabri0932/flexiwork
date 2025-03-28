@@ -2,10 +2,10 @@ import { getUserProfile } from './getUserProfile.js';
 const parser = new DOMParser();
 const container = document.getElementById('dynamic-content-container');
 
-function profileButton({ publicId, role }) {
+function profileButton({ publicId }) {
     return `
         <div class="profile-icon">
-            <a href='../me/${(role === 'freelancer' ? 'freelancer' : 'customer')}/index.html?profile=${publicId}'>
+            <a href='../profile/me/index.html?profile=${publicId}'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                     <circle cx="12" cy="7" r="4"></circle>
@@ -34,11 +34,10 @@ function createProfileButton() {
         return;
     }
 
-    const { publicId, role } = profile;
+    const { publicId } = profile;
 
     const profileButtonHTML = parser.parseFromString(profileButton({
-        publicId,
-        role
+        publicId
     }), 'text/html').body.firstChild;
 
     container.insertBefore(profileButtonHTML, container.firstChild);
