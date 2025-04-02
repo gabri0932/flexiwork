@@ -5,7 +5,9 @@ import { isAuth } from './auth.js';
         '/app/explore/index.html',
         '/app/profile/create/index.html',
         '/app/profile/create/freelancer-profile/index.html',
-        '/app/profile/create/customer-profile/index.html'
+        '/app/profile/create/customer-profile/index.html',
+        '/app/pay/method/index.html',
+        '/app/profile/me/index.html'
     ];
     const invalidForAuth = ['/auth/login/index.html', '/auth/register/index.html'];
 

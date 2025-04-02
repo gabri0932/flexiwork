@@ -59,10 +59,12 @@ document.addEventListener("DOMContentLoaded", function () {
         showError("CVV inválido. Debe tener 3 o 4 dígitos.");
         return;
       }
-  
+
+      // Justo aquí tocaría hacer la request, aunque no sé si lo mejor sea en el success... hmmmmm
+
       const linkEl = document.getElementById('navigate');
       linkEl.setAttribute('href', '../success/index.html');
-    linkEl.click();
+      linkEl.click();
     });
   });
 //../app.html

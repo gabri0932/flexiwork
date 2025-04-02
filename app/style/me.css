@@ -537,6 +537,26 @@ input[type="file"] {
     display: block;
 }
 
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+.loader svg {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .form-group {
