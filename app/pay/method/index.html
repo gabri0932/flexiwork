@@ -50,7 +50,7 @@
           <p>Billetera</p>
         </div>
       </div>
-      
+      <div class="mensaje_error"></div>
       <div class="card-form">
         <div class="form-group">
           <label for="card-number">Número de Tarjeta</label>
@@ -79,7 +79,7 @@
           <label for="save-card-checkbox">Guardar esta tarjeta para pagos futuros</label>
         </div>
         
-        <button class="checkout-button">
+        <button id="checkout-button" class="checkout-button">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"></path>
             <polyline points="6 9 12 15 18 9"></polyline>
@@ -88,5 +88,7 @@
           Realizar Pago
         </button>
       </div>
+      <a id="navigate" hidden></a>
      </body>
+     <script src="../scripts/pay.js"></script>
 </html>
