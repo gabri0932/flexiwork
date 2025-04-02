@@ -1,3 +1,4 @@
+import { getUserProfile } from '../profile/scripts/getUserProfile.js';
 import { getServices, getSkills } from '../profile/scripts/getSkillsAndServices.js';
 
 export async function showProfileService(service) {
@@ -16,6 +17,8 @@ export async function profileCardSkillTag(skill) {
 const parser = new DOMParser();
 
 export async function profileCard({ profile }) {
+    const { profile: userProfile } = await getUserProfile();
+
     const technologiesToShow = profile.technologies.slice(0, 2);
     const resolvedTechnologies = await Promise.all(technologiesToShow.map(tech => profileCardSkillTag(tech)));
     const extraTechnologies = profile.technologies.length > 2 ? profile.technologies.length - 2 : null;
@@ -35,7 +38,7 @@ export async function profileCard({ profile }) {
                 <div class="skills-container">${technologies}</div>
                 <div class="profile-actions">
                     <button class="profile-button"><a href="../profile/view_usu/index.html?profile=${profile.publicId}">Ver perfil</a></button>
-                    <a href="../pay/method/index.html?profile=${profile.publicId}" class="profile-button hire-button" >Contratar</a>
+                    ${(userProfile && userProfile.role === 'customer') ? `<a href="../pay/method/index.html?profile=${profile.publicId}" class="profile-button hire-button" >Contratar</a>` : ''}
                 </div>
             </div>
         </div>

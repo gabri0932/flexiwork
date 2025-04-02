@@ -18,6 +18,8 @@ export async function logoutUser() {
         success: false
     }
 
+    localStorage.removeItem('__session');
+
     return {
         success: true
     }

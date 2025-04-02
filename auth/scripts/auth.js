@@ -32,7 +32,7 @@ export async function isAuth() {
             session: null
         }
 
-        return;
+        return status;
     }
 
     status = {
