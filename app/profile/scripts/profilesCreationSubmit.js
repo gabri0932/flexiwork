@@ -56,12 +56,10 @@ form.addEventListener('submit', async (event) => {
             setError('El servicio ingresado no existe.');
             return;
         }
-        
         if(isNaN(Number(phone))){
-            setError("Solo se aceptan números.");
-            return;
+            setError("Solo se aceptan numeros")
+            return
         }
-        
         if (technologiesSelect.length < 1) {
             setError('Debe seleccionar al menos una tecnología.');
             return;
