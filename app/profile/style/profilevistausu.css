@@ -208,3 +208,23 @@ header {
 .btn-contact:hover {
     background-color: var(--hover-blue);
 }
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+.loader svg {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
