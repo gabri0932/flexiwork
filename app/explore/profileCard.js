@@ -37,7 +37,7 @@ export async function profileCard({ profile }) {
                 <div class="profile-title">${(await showProfileService(profile.service))}</div>
                 <div class="skills-container">${technologies}</div>
                 <div class="profile-actions">
-                    <a class="profile-button" href="../profile/view_usu/index.html?profile=${profile.publicId}">Ver perfil</a>
+                    <a class="profile-button" target='_blank' href="../profile/view_usu/index.html?profile=${profile.publicId}">Ver perfil</a>
                     ${(userProfile && userProfile.role === 'customer') ? `<a target='_blank' href="../pay/method/index.html?profile=${profile.publicId}" class="profile-button hire-button" >Contratar</a>` : ''}
                 </div>
             </div>

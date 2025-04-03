@@ -1,4 +1,5 @@
 import { isAuth } from '../../../auth/scripts/auth.js';
+import { getUserProfile } from '../scripts/getUserProfile.js';
 import { loader } from '../scripts/loader.js';
 import { userProfile } from './userProfile.js';
 
@@ -7,6 +8,7 @@ const getProfileEndpoint = 'https://api-rest-emprendi.onrender.com/profiles';
 
 (async () => {
     const { isUserAuth, session } = await isAuth();
+    const { profile: authUserProfile } = await getUserProfile();
 
     if (!isUserAuth) {
         location.replace('/app/explore/index.html');
@@ -31,8 +33,9 @@ const getProfileEndpoint = 'https://api-rest-emprendi.onrender.com/profiles';
 
     const json = await response.json();
     const { profile } = json.data;
+    const showHireButton = authUserProfile.role === 'customer' && profile._id !== authUserProfile._id;
 
-    const profileHTML = await userProfile({ profile });
+    const profileHTML = await userProfile({ profile, showHireButton });
 
     loaderNode.parentElement.removeChild(loaderNode);
     renderingEl.appendChild(profileHTML);

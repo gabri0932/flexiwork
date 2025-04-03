@@ -2,7 +2,7 @@ import { getSkills, getServices } from '../scripts/getSkillsAndServices.js';
 
 const parser = new DOMParser();
 
-export async function userProfile({ profile }) {
+export async function userProfile({ profile, showHireButton }) {
     const skills = await getSkills();
     const services = await getServices();
 
@@ -18,7 +18,7 @@ export async function userProfile({ profile }) {
             </div>
             
             <div class="profile-content">
-                <h1 class="profile-name">Perfil de ${profile.name}</h1>
+                <h1 class="profile-name">${profile.name}</h1>
                 <p class="profile-title">${services.find(({ identifier }) => identifier === profile.service).name ?? 'USER SERVICE IS NOT AVAILABLE.'}</p>
                 
                 <div class="profile-section">
@@ -35,7 +35,7 @@ export async function userProfile({ profile }) {
                     </div>
                 </div>
                 
-                <button class="btn-contact"><a href="../../pay/method/index.html?publicId=${profile.publicId}">Contratar</a></button>
+                ${showHireButton ? `<button class="btn-contact"><a href="../../pay/method/index.html?publicId=${profile.publicId}">Contratar</a></button>` : ''}
             </div>
         </div>`,
         'text/html'
