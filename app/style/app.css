@@ -439,6 +439,9 @@ body {
         padding: 4px 12px;
     }
 }
+.profile-header img{
+    width: 100%;
+}
 /* Mejoras responsivas para el sidebar */
 @media (max-width: 1024px) {
     .sidebar {
