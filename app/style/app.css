@@ -147,34 +147,24 @@ body {
     padding: 20px;
     gap: 30px;
 }
-
-/* Sidebar Styles  */
+/* Rediseño completo del Sidebar */
 .sidebar {
     width: 320px;
-    background: linear-gradient(165deg, var(--primary-blue), var(--dark-blue));
-    color: white;
-    padding: 30px;
+    background: white;
+    color: var(--text-primary);
+    padding: 35px 25px;
     position: sticky;
     top: 100px;
     height: max-content;
-    border-radius: 20px;
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
     z-index: 10;
-    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .sidebar::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 20% 20%, rgba(144, 224, 239, 0.15), transparent 30%),
-        radial-gradient(circle at 80% 80%, rgba(144, 224, 239, 0.1), transparent 40%);
-    z-index: 0;
+    display: none; /* Eliminamos el gradiente anterior */
 }
 
 .sidebar > * {
@@ -182,21 +172,22 @@ body {
     z-index: 1;
 }
 
+/* Barra de búsqueda moderna y minimalista */
 .search-box {
     display: flex;
-    margin-bottom: 30px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    margin-bottom: 35px;
+    box-shadow: none;
     border-radius: 15px;
     overflow: hidden;
     transition: var(--transition-normal);
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid #f0f5f9;
+    background: white;
 }
 
 .search-box:focus-within {
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 15px rgba(0, 119, 182, 0.08);
+    border-color: var(--accent-blue);
 }
 
 .search-box input {
@@ -206,154 +197,150 @@ body {
     outline: none;
     font-size: 14px;
     font-weight: 400;
-    border-radius: 15px 0 0 15px;
+    border-radius: 15px;
+    background-color: transparent;
+    color: var(--text-primary);
 }
 
 .search-box input::placeholder {
-    color: #aaa;
-    font-weight: 300;
+    color: #a0aec0;
+    font-weight: 400;
 }
 
 .search-button {
-    background: var(--gradient-primary);
+    background: transparent;
     border: none;
-    padding: 0 25px;
+    padding: 0 20px;
     cursor: pointer;
-    color: white;
+    color: var(--accent-blue);
     transition: var(--transition-normal);
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 
 .search-button svg {
-    right: 12px;
+    stroke: var(--accent-blue);
+    right: 0;
     position: relative;
-    stroke-width: 3;
+    stroke-width: 2.5;
     width: 18px;
     height: 18px;
     transition: transform 0.3s ease;
 }
 
-.search-button:hover {
-    background: var(--gradient-hover);
-}
-
 .search-button:hover svg {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
+/* Cajas de filtros con estilo de tarjeta */
 .sidebar-box {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
+    background-color: white;
+    border-radius: 18px;
     padding: 25px;
-    margin-bottom: 30px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
     transition: var(--transition-normal);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid #f0f5f9;
     position: relative;
     overflow: hidden;
 }
 
-.sidebar-box::after {
+.sidebar-box::before {
     content: "";
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none;
-    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--accent-blue), var(--secondary-blue));
+    border-radius: 0 4px 4px 0;
 }
 
 .sidebar-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    background-color: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.sidebar-box:hover::after {
-    opacity: 1;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 180, 216, 0.1);
 }
 
 .sidebar-box h3 {
-    font-size: 18px;
+    font-size: 17px;
     margin-bottom: 22px;
-    color: white;
+    color: var(--dark-blue);
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 12px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
+    padding-left: 15px;
     position: relative;
 }
 
 .sidebar-box h3::before {
-    content: "";
-    display: block;
-    width: 5px;
-    height: 20px;
-    background-color: var(--accent-blue);
-    border-radius: 3px;
-    box-shadow: 0 0 10px var(--accent-blue);
+    display: none; /* Eliminamos el marcador anterior */
 }
 
+/* Sliders de precio elegantes */
 .price-label {
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    color: var(--text-secondary);
     margin-bottom: 12px;
     display: block;
     font-weight: 500;
-    letter-spacing: 0.5px;
 }
 
 .price-range {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 22px;
 }
 
 .price-slider {
     width: 100%;
     appearance: none;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
+    height: 5px;
+    background: #e9f2f9;
+    border-radius: 10px;
     outline: none;
     position: relative;
 }
 
+.price-slider::-webkit-slider-runnable-track {
+    border-radius: 10px;
+    height: 5px;
+}
+
 .price-slider::-webkit-slider-thumb {
     appearance: none;
-    width: 24px;
-    height: 24px;
-    background: var(--accent-blue);
+    width: 20px;
+    height: 20px;
+    background: white;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 0 15px rgba(0, 180, 216, 0.5);
-    border: 3px solid white;
+    box-shadow: 0 0 10px rgba(0, 119, 182, 0.2);
+    border: 2px solid var(--accent-blue);
+    margin-top: -7.5px;
     transition: var(--transition-normal);
 }
 
 .price-slider::-webkit-slider-thumb:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 20px rgba(0, 180, 216, 0.7);
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(0, 119, 182, 0.3);
 }
 
 .price-display {
     display: flex;
     justify-content: space-between;
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    color: var(--text-secondary);
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-top: -10px;
 }
 
+/* Dropdowns premium */
 .dropdown {
     position: relative;
     margin-bottom: 15px;
@@ -361,10 +348,10 @@ body {
 
 .dropdown select {
     width: 100%;
-    padding: 15px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
+    padding: 14px 20px;
+    border: 2px solid #e9f2f9;
+    background-color: white;
+    color: var(--text-primary);
     border-radius: 12px;
     outline: none;
     cursor: pointer;
@@ -373,36 +360,105 @@ body {
     font-size: 14px;
     font-weight: 400;
     appearance: none;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    letter-spacing: 0.3px;
 }
 
 .dropdown select:hover, .dropdown select:focus {
-    background-color: rgba(255, 255, 255, 0.18);
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border-color: var(--accent-blue);
+    box-shadow: 0 6px 15px rgba(0, 119, 182, 0.08);
 }
 
 .dropdown select option {
     background-color: white;
-    color: var(--dark-blue);
+    color: var(--text-primary);
     padding: 12px;
 }
 
 .dropdown::after {
-    content: "▼";
+    content: "";
     position: absolute;
     right: 18px;
-    top: 15px;
-    color: var(--accent-blue);
-    font-size: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    border-right: 2px solid var(--accent-blue);
+    border-bottom: 2px solid var(--accent-blue);
+    transform: translateY(-70%) rotate(45deg);
     pointer-events: none;
     transition: transform 0.3s ease;
 }
 
 .dropdown:hover::after {
-    transform: translateY(2px);
+    transform: translateY(-30%) rotate(45deg);
 }
 
+/* Etiqueta especial para el sidebar */
+.sidebar::after {
+    content: "Filtros";
+    position: absolute;
+    top: 0;
+    right: 25px;
+    background: var(--accent-blue);
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 15px;
+    border-radius: 0 0 12px 12px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 119, 182, 0.2);
+}
+
+/* Mejoras responsivas para el sidebar */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 100%;
+        padding: 35px 25px;
+        position: relative;
+        top: 0;
+        border-radius: 20px;
+    }
+    
+    .sidebar::after {
+        right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 30px 20px;
+    }
+    
+    .sidebar-box {
+        padding: 20px;
+    }
+    
+    .sidebar::after {
+        font-size: 10px;
+        padding: 4px 12px;
+    }
+}
+/* Mejoras responsivas para el sidebar */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 100%;
+        padding: 25px;
+        position: relative;
+        top: 0;
+        border-radius: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 20px;
+    }
+    
+    .sidebar-box {
+        padding: 20px;
+    }
+}
 /* Content Styles - MEJORADO */
 .content {
     flex: 1;
