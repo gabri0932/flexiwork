@@ -16,11 +16,409 @@
         <nav>
             <ul>
                 <li><a href="../../explore/index.html"><i class='bx bx-home'></i> Inicio</a></li>
-
             </ul>
         </nav>
     </header>
+    
+    <!-- Contenido principal -->
     <div id="profile-section"></div>
+    
+    <!-- Botón flotante para abrir modal de imágenes -->
+    <button id="image-edit-btn" class="floating-edit-btn" title="Editar imágenes">
+        <i class='bx bx-image-add'></i>
+    </button>
+    
+    <!-- Modal para edición de imágenes (oculto por defecto) -->
+    <div id="image-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 class="modal-title">Personalizar imágenes</h3>
+            
+            <div class="image-edit-container">
+                <!-- Imagen de perfil -->
+                <div class="image-edit-section">
+                    <h4><i class='bx bx-user-circle'></i> Imagen de perfil</h4>
+                    <div class="compact-upload">
+                        <input type="file" id="profile-image-input" accept="image/*" class="file-input">
+                        <label for="profile-image-input" class="compact-upload-label">
+                            Seleccionar imagen
+                        </label>
+                        <span id="profile-file-name" class="file-name-small">Ningún archivo</span>
+                    </div>
+                    <div class="preview-container">
+                        <img id="profile-preview" class="compact-preview" src="#" alt="Vista previa">
+                    </div>
+                </div>
+                
+                <!-- Imagen de portada -->
+                <div class="image-edit-section">
+                    <h4><i class='bx bx-image'></i> Imagen de portada</h4>
+                    <div class="compact-upload">
+                        <input type="file" id="cover-image-input" accept="image/*" class="file-input">
+                        <label for="cover-image-input" class="compact-upload-label">
+                            Seleccionar imagen
+                        </label>
+                        <span id="cover-file-name" class="file-name-small">Ningún archivo</span>
+                    </div>
+                    <div class="preview-container">
+                        <img id="cover-preview" class="compact-preview" src="#" alt="Vista previa">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button id="save-images-btn" class="primary-btn">
+                    <i class='bx bx-check'></i> Guardar cambios
+                </button>
+                <button id="cancel-images-btn" class="secondary-btn">
+                    <i class='bx bx-x'></i> Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+    
     <script type="module" src="./index.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Referencias a elementos
+            const modal = document.getElementById('image-modal');
+            const openModalBtn = document.getElementById('image-edit-btn');
+            const closeModalBtn = document.querySelector('.close-modal');
+            const cancelBtn = document.getElementById('cancel-images-btn');
+            const saveBtn = document.getElementById('save-images-btn');
+            
+            // Inputs de archivos
+            const profileInput = document.getElementById('profile-image-input');
+            const coverInput = document.getElementById('cover-image-input');
+            
+            // Elementos para mostrar nombres de archivos
+            const profileFileName = document.getElementById('profile-file-name');
+            const coverFileName = document.getElementById('cover-file-name');
+            
+            // Elementos para vista previa
+            const profilePreview = document.getElementById('profile-preview');
+            const coverPreview = document.getElementById('cover-preview');
+            
+            // Funciones para manejar la ventana modal
+            function openModal() {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Evitar scroll
+            }
+            
+            function closeModal() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restaurar scroll
+            }
+            
+            // Event listeners para abrir/cerrar modal
+            openModalBtn.addEventListener('click', openModal);
+            closeModalBtn.addEventListener('click', closeModal);
+            cancelBtn.addEventListener('click', closeModal);
+            
+            // Cerrar modal si se hace clic fuera del contenido
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Previsualizar imagen de perfil
+            profileInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    profileFileName.textContent = file.name.length > 15 ? 
+                        file.name.substring(0, 12) + '...' : file.name;
+                    
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        profilePreview.src = e.target.result;
+                        profilePreview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            // Previsualizar imagen de portada
+            coverInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    coverFileName.textContent = file.name.length > 15 ? 
+                        file.name.substring(0, 12) + '...' : file.name;
+                    
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        coverPreview.src = e.target.result;
+                        coverPreview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            // Guardar cambios
+            saveBtn.addEventListener('click', function() {
+                // Aquí iría el código para subir las imágenes al servidor
+                if (profileInput.files.length > 0 || coverInput.files.length > 0) {
+                    // Simulación de actualización exitosa
+                    const message = document.createElement('div');
+                    message.className = 'success-toast';
+                    message.innerHTML = '<i class="bx bx-check-circle"></i> Imágenes actualizadas correctamente';
+                    document.body.appendChild(message);
+                    
+                    // Mostrar mensaje por 3 segundos
+                    setTimeout(() => {
+                        message.classList.add('show-toast');
+                        setTimeout(() => {
+                            message.classList.remove('show-toast');
+                            setTimeout(() => {
+                                document.body.removeChild(message);
+                            }, 300);
+                        }, 3000);
+                    }, 100);
+                    
+                    closeModal();
+                }
+            });
+        });
+    </script>
 </body>
+<style>
+    /* Estilos para el botón flotante y modal de edición de imágenes */
+
+/* Botón flotante */
+.floating-edit-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 99;
+}
+
+.floating-edit-btn:hover {
+    transform: scale(1.1);
+    background-color: var(--secondary-blue);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    position: relative;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.modal-title {
+    font-size: 1.4rem;
+    color: var(--dark-blue);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--light-blue);
+}
+
+/* Contenedor de edición de imágenes */
+.image-edit-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.image-edit-section {
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.image-edit-section h4 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    color: var(--secondary-blue);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Carga compacta de archivos */
+.compact-upload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.file-input {
+    display: none;
+}
+
+.compact-upload-label {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.compact-upload-label:hover {
+    background-color: var(--secondary-blue);
+}
+
+.file-name-small {
+    font-size: 0.8rem;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 120px;
+}
+
+/* Vista previa de imágenes */
+.preview-container {
+    display: flex;
+    justify-content: center;
+    height: 120px;
+    background-color: #f0f0f0;
+    border-radius: 6px;
+}
+
+.compact-preview {
+    max-width: 100%;
+    max-height: 120px;
+    border-radius: 6px;
+    object-fit: contain;
+    display: none;
+}
+
+/* Botones de acción */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.primary-btn, .secondary-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+}
+
+.primary-btn {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+}
+
+.primary-btn:hover {
+    background-color: var(--secondary-blue);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: #666;
+    border: 1px solid #ddd;
+}
+
+.secondary-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Toast de éxito */
+.success-toast {
+    position: fixed;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2000;
+    font-weight: 500;
+    transition: bottom 0.3s ease;
+}
+
+.show-toast {
+    bottom: 30px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .image-edit-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        padding: 16px;
+        width: 95%;
+    }
+}   
+</style>
 </html>
