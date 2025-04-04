@@ -46,5 +46,5 @@ export async function profileCard({ profile }) {
 
     const parsedCard = parser.parseFromString(card, 'text/html').body.firstChild;
 
-    return parsedCard;
+    return parsedCard; //
 }
