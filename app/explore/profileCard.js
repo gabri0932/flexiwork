@@ -32,7 +32,7 @@ export async function profileCard({ profile }) {
             </div>
             <div class="price-tag">${profile.price.currency.toUpperCase()}$${profile.price.amount}/hr</div>
             <div class="profile-body">
-                    <img class="profile-img" src="${profile.images.avatar ?? "ba2510941031447abd07257f369caf95.jpg"} " alt=""> 
+                    <img class="profile-img" src="${profile.images.avatar ?? "/assets/ba2510941031447abd07257f369caf95.jpg"} " alt=""> 
                 <div class="profile-name">${profile.name}</div>
                 <div class="profile-title">${(await showProfileService(profile.service))}</div>
                 <div class="skills-container">${technologies}</div>
