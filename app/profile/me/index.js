@@ -48,7 +48,7 @@ const htmlToRenderForUserProfile = async ({ profile }) => {
                 <!-- Barra lateral izquierda -->
                 <aside class="profile-sidebar">
                     <div class="profile-cover">
-                        <img src="${profile.images.avatar ?? 'https://pin.it/4oeVE1wKD'}" alt="Foto de perfil" class="profile-avatar">
+                        <img src="${profile.images.avatar ?? '../../../assets/img/Imagen Cohete 2.png'}" alt="Foto de perfil" class="profile-avatar">
                     </div>
                     <div class="profile-info">
                         <h2 class="profile-name">${profile.name}</h2>
