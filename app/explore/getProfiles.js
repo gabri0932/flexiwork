@@ -26,7 +26,6 @@ const filters = {
 
 // Initial set:
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log(profileName);
     filters.name = profileName.value;
     filters.minPrice = minPrice.value;
     filters.maxPrice = maxPrice.value;
@@ -50,8 +49,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const { data } = json;
     const { profiles } = data;
 
-    initialProfiles = profiles;
-    profilesToShow = profiles;
+    [ initialProfiles, profilesToShow ] = [ profiles, profiles ];
     applyFiltersAndSetProfiles();
 })
 

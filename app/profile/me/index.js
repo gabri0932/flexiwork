@@ -36,13 +36,104 @@ export function closeModal() {
 }
 
 const htmlToRenderForUserProfile = async ({ profile }) => {
-    const skills = await getSkills();
-    const services = await getServices();
+    if (profile.role === 'freelancer') {
+        const skills = await getSkills();
+        const services = await getServices();
 
-    const service = services.find(service => service.identifier === profile.service).name;
-    const technologies = profile.technologies.map(tech => skills.find(({ identifier }) => identifier === tech).name);
+        const service = services.find(service => service.identifier === profile.service).name;
+        const technologies = profile.technologies.map(tech => skills.find(({ identifier }) => identifier === tech).name);
 
-    return parser.parseFromString(`
+        const freelancerContent = `
+            <div>
+                <div class="profile-container">
+                    <!-- Barra lateral izquierda -->
+                    <aside class="profile-sidebar" >
+                        <div class="profile-cover" >
+                            <img src="${profile.images.avatar ?? "https://thumbs2.imgbox.com/6f/6c/AvFDMxvx_t.jpg" }" alt="Foto de perfil" class="profile-avatar">
+                        </div>
+                        <div class="profile-info">
+                            <h2 class="profile-name">${profile.name}</h2>
+                            <p class="profile-title">${service ?? 'Invalid Service.'}</p>
+                            <span class="availability-status">
+                                <span class="availability-indicator"></span>
+                                Disponible para proyectos
+                            </span>
+                        </div>
+                        
+                        <ul class="profile-links">
+                            <li><a href="#"><i class='bx bx-envelope'></i><b>Correo: </b>${profile.email}</a></li>
+                            <li><a href="#"><i class='bx bx-phone'></i><b>Numero: </b>${profile.phone}</a></li>
+                            <li><a href="#"><i class='bx bxs-bank'></i><b>Salario/h: </b>${profile.price.currency.toUpperCase()}$${profile.price.amount}</a></li>
+                        </ul>
+                    </aside>
+                    
+                    <!-- Contenido principal del perfil -->
+                    <main class="profile-content">
+                        <div class="profile-tabs">
+                            <div class="profile-tab active">Resumen</div>
+                        </div>
+                        
+                        <!-- Sección de información -->
+                        <section class="profile-section">
+                            <div class="section-header">
+                                <h3 class="section-title"><i class='bx bx-info-circle'></i> Acerca de mí</h3>
+                                
+                            </div>
+                            <p>${profile.description}</p>
+                        </section>
+                        
+                        <!-- Sección de habilidades -->
+                        <section class="profile-section">
+                            <div class="section-header">
+                                <h3 class="section-title"><i class='bx bx-briefcase-alt-2'></i> Servicios</h3>
+                            
+                            </div>
+                            <div class="skill-tags">
+                                <div class="skill-tag">${service}</div>
+                            </div>
+                            <div class="section-header">
+                                <h3 class="section-title"><i class='bx bx-code-alt'></i> Habilidades</h3>
+                                <button class="section-action"><i class='bx bx-plus'></i> Añadir</button>
+                            </div>
+                            
+                            <div class="skill-tags">
+                                ${technologies.map(tech => `<div class="skill-tag">${tech}</div>`).join('')}
+                            </div>
+                        </div>
+                    </main>
+                </div>
+                <form action="">
+                    <div class="form-group">
+                        <label for="profile-image" class="form-label">Foto de perfil</label>
+                        <div class="file-upload">
+                            <label for="profile-image" class="file-input-label">
+                                <i class='bx bx-user-circle'></i>
+                                <span>Seleccionar imagen de perfil</span>
+                            </label>
+                            <input type="file" name="profile-image" id="profile-image" accept="image/*">
+                            <div class="file-name" id="profile-image-name">Ningún archivo seleccionado</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cover-image" class="form-label">Imagen de portada</label>
+                        <div class="file-upload">
+                            <label for="cover-image" class="file-input-label">
+                                <i class='bx bx-image-add'></i>
+                                <span>Seleccionar imagen de portada</span>
+                            </label>
+                            <input type="file" name="cover-image" id="cover-image" accept="image/*">
+                            <div class="file-name" id="cover-image-name">Ningún archivo seleccionado</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        `;
+
+        return parser.parseFromString(freelancerContent,'text/html').body.firstChild;
+    }
+
+    const customerContent = `
         <div>
             <div class="profile-container">
                 <!-- Barra lateral izquierda -->
@@ -52,18 +143,11 @@ const htmlToRenderForUserProfile = async ({ profile }) => {
                     </div>
                     <div class="profile-info">
                         <h2 class="profile-name">${profile.name}</h2>
-                        <p class="profile-title">${service ?? 'Invalid Service.'}</p>
                         <span class="availability-status">
                             <span class="availability-indicator"></span>
-                            Disponible para proyectos
+                            Disponible para contratar
                         </span>
                     </div>
-                    
-                    <ul class="profile-links">
-                        <li><a href="#"><i class='bx bx-envelope'></i><b>Correo: </b>${profile.email}</a></li>
-                        <li><a href="#"><i class='bx bx-phone'></i><b>Numero: </b>${profile.phone}</a></li>
-                        <li><a href="#"><i class='bx bxs-bank'></i><b>Salario/h: </b>${profile.price.currency.toUpperCase()}$${profile.price.amount}</a></li>
-                    </ul>
                 </aside>
                 
                 <!-- Contenido principal del perfil -->
@@ -80,25 +164,6 @@ const htmlToRenderForUserProfile = async ({ profile }) => {
                         </div>
                         <p>${profile.description}</p>
                     </section>
-                    
-                    <!-- Sección de habilidades -->
-                    <section class="profile-section">
-                        <div class="section-header">
-                            <h3 class="section-title"><i class='bx bx-briefcase-alt-2'></i> Servicios</h3>
-                           
-                        </div>
-                        <div class="skill-tags">
-                            <div class="skill-tag">${service}</div>
-                        </div>
-                        <div class="section-header">
-                            <h3 class="section-title"><i class='bx bx-code-alt'></i> Habilidades</h3>
-                            <button class="section-action"><i class='bx bx-plus'></i> Añadir</button>
-                        </div>
-                        
-                        <div class="skill-tags">
-                            ${technologies.map(tech => `<div class="skill-tag">${tech}</div>`).join('')}
-                        </div>
-                    </div>
                 </main>
             </div>
             <form action="">
@@ -127,7 +192,9 @@ const htmlToRenderForUserProfile = async ({ profile }) => {
                 </div>
             </form>
         </div>
-    `, 'text/html').body.firstChild;
+    `;
+
+    return parser.parseFromString(customerContent,'text/html').body.firstChild;
 }
 
 (async () => {
