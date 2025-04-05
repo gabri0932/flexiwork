@@ -1,12 +1,46 @@
 import { getUserProfile } from '../scripts/getUserProfile.js';
-import { getServices } from '../scripts/getSkillsAndServices.js';
+import { getServices, getSkills } from '../scripts/getSkillsAndServices.js';
 import { loader } from '../scripts/loader.js';
 
 const renderingEl = document.getElementById('profile-section');
 const parser = new DOMParser();
 
+// Referencias a elementos
+const modal = document.getElementById('image-modal');
+const openModalBtn = document.getElementById('image-edit-btn');
+const closeModalBtn = document.querySelector('.close-modal');
+const cancelBtn = document.getElementById('cancel-images-btn');
+export const saveBtn = document.getElementById('save-images-btn');
+
+// Inputs de archivos
+export const avatarInput = document.getElementById('profile-image-input');
+export const coverInput = document.getElementById('cover-image-input');
+
+// Elementos para mostrar nombres de archivos
+const profileFileName = document.getElementById('profile-file-name');
+const coverFileName = document.getElementById('cover-file-name');
+
+// Elementos para vista previa
+const profilePreview = document.getElementById('profile-preview');
+const coverPreview = document.getElementById('cover-preview');
+
+// Funciones para manejar la ventana modal
+export function openModal() {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Evitar scroll
+}
+
+export function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restaurar scroll
+}
+
 const htmlToRenderForUserProfile = async ({ profile }) => {
-    const service = (await getServices()).find(service => service.identifier === profile.service).name;
+    const skills = await getSkills();
+    const services = await getServices();
+
+    const service = services.find(service => service.identifier === profile.service).name;
+    const technologies = profile.technologies.map(tech => skills.find(({ identifier }) => identifier === tech).name);
 
     return parser.parseFromString(`
         <div>
@@ -54,7 +88,7 @@ const htmlToRenderForUserProfile = async ({ profile }) => {
                             <button class="section-action"><i class='bx bx-plus'></i> Añadir</button>
                         </div>
                         <div class="skill-tags">
-                            <div class="skill-tag"><i class='bx bxl-visual-studio'></i> Desarrollo de Software</div>
+                            <div class="skill-tag">${service}</div>
                         </div>
                         <div class="section-header">
                             <h3 class="section-title"><i class='bx bx-code-alt'></i> Habilidades</h3>
@@ -62,12 +96,7 @@ const htmlToRenderForUserProfile = async ({ profile }) => {
                         </div>
                         
                         <div class="skill-tags">
-                            <div class="skill-tag"><i class='bx bxl-html5'></i> HTML5</div>
-                            <div class="skill-tag"><i class='bx bxl-css3'></i> CSS3</div>
-                            <div class="skill-tag"><i class='bx bxl-javascript'></i> JavaScript</div>
-                            <div class="skill-tag"><i class='bx bxl-react'></i> React</div>
-                            <div class="skill-tag"><i class='bx bxl-nodejs'></i> Node.js</div>
-                            <div class="skill-tag"><i class='bx bxl-python'></i> Python</div>
+                            ${technologies.map(tech => `<div class="skill-tag">${tech}</div>`).join('')}
                         </div>
                     </div>
                 </main>
@@ -111,3 +140,47 @@ const htmlToRenderForUserProfile = async ({ profile }) => {
 
     renderingEl.appendChild((await htmlToRenderForUserProfile({ profile })));
 })();
+
+// Event listeners para abrir/cerrar modal
+openModalBtn.addEventListener('click', openModal);
+closeModalBtn.addEventListener('click', closeModal);
+cancelBtn.addEventListener('click', closeModal);
+
+// Cerrar modal si se hace clic fuera del contenido
+window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        closeModal();
+    }
+});
+
+// Previsualizar imagen de perfil
+avatarInput.addEventListener('change', function() {
+    if (this.files && this.files[0]) {
+        const file = this.files[0];
+        profileFileName.textContent = file.name.length > 15 ? 
+            file.name.substring(0, 12) + '...' : file.name;
+        
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            profilePreview.src = e.target.result;
+            profilePreview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// Previsualizar imagen de portada
+coverInput.addEventListener('change', function() {
+    if (this.files && this.files[0]) {
+        const file = this.files[0];
+        coverFileName.textContent = file.name.length > 15 ? 
+            file.name.substring(0, 12) + '...' : file.name;
+        
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            coverPreview.src = e.target.result;
+            coverPreview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    }
+});
