@@ -36,7 +36,7 @@
     <div class="main-container">
         <aside class="sidebar">
             <div class="search-box">
-                <input type="text" placeholder="Buscar freelancers...">
+                <input type="text" name='profile-name' id='profile-name' placeholder="Buscar freelancers...">
                 <button class="search-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8"></circle>
@@ -49,13 +49,13 @@
                 <h3>Rango de Precio</h3>
                 <div class="price-range">
                     <label class="price-label">Precio Mínimo</label>
-                    <input type="range" min="0" max="100" value="20" class="price-slider" id="min-price">
+                    <input type="range" min="0" max="5000" value="0" class="price-slider" name='min-price' id="min-price">
                     <div class="price-display">
                         <span id="min-price-display">Min: $20/hr</span>
                     </div>
                     
                     <label class="price-label">Precio Máximo</label>
-                    <input type="range" min="0" max="200" value="100" class="price-slider" id="max-price">
+                    <input type="range" min="0" max="5000" value="5000" class="price-slider" name='max-price' id="max-price">
                     <div class="price-display">
                         <span id="max-price-display">Max: $100/hr</span>
                     </div>
@@ -92,13 +92,19 @@
     <script type="module" src="./getProfiles.js"></script>
     <script type="module" src="./setServicesAndTechnologies.js"></script>
     <script>
+        const minPrice = document.getElementById('min-price');
+        const maxPrice = document.getElementById('max-price');
+
+        document.getElementById('min-price-display').textContent = 'Min: $' + minPrice.value + '/hr';
+        document.getElementById('max-price-display').textContent = 'Max: $' + maxPrice.value + '/hr';
+
         // Script para actualizar los valores de los sliders de precio
-        document.getElementById('min-price').addEventListener('input', function() {
-            document.getElementById('min-price-display').textContent = 'Min: $' + this.value + '/hr';
+        minPrice.addEventListener('input', function() {
+            document.getElementById('min-price-display').textContent = 'Min: $' + minPrice.value + '/hr';
         });
         
-        document.getElementById('max-price').addEventListener('input', function() {
-            document.getElementById('max-price-display').textContent = 'Max: $' + this.value + '/hr';
+        maxPrice.addEventListener('input', function() {
+            document.getElementById('max-price-display').textContent = 'Max: $' + maxPrice.value + '/hr';
         });
     </script>
 </body>
