@@ -76,7 +76,7 @@ const htmlToRenderForUserProfile = async ({ profile }) => {
                     <section class="profile-section">
                         <div class="section-header">
                             <h3 class="section-title"><i class='bx bx-info-circle'></i> Acerca de mí</h3>
-                            <button class="section-action"><i class='bx bx-edit'></i> Editar</button>
+                            
                         </div>
                         <p>${profile.description}</p>
                     </section>
@@ -85,14 +85,14 @@ const htmlToRenderForUserProfile = async ({ profile }) => {
                     <section class="profile-section">
                         <div class="section-header">
                             <h3 class="section-title"><i class='bx bx-briefcase-alt-2'></i> Servicios</h3>
-                            <button class="section-action"><i class='bx bx-plus'></i> Añadir</button>
+                           
                         </div>
                         <div class="skill-tags">
                             <div class="skill-tag">${service}</div>
                         </div>
                         <div class="section-header">
                             <h3 class="section-title"><i class='bx bx-code-alt'></i> Habilidades</h3>
-                            <button class="section-action"><i class='bx bx-plus'></i> Añadir</button>
+                            
                         </div>
                         
                         <div class="skill-tags">
