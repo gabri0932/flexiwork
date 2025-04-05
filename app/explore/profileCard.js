@@ -28,7 +28,7 @@ export async function profileCard({ profile }) {
     const card = `
         <div class="profile-card">
             <div class="profile-header">
-                <img class="profile-header" src="${profile.images.cover ?? '../../assets/stars-2643089_640.jpg'}" alt="">
+                <img class="profile-header" src="${profile.images.cover ?? 'https://thumbs2.imgbox.com/1e/cd/KQOchYjG_t.jpg'}" alt="">
             </div>
             <div class="price-tag">${profile.price.currency.toUpperCase()}$${profile.price.amount}/hr</div>
             <div class="profile-body">

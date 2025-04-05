@@ -92,7 +92,7 @@ const htmlToRenderForUserProfile = async ({ profile }) => {
                         </div>
                         <div class="section-header">
                             <h3 class="section-title"><i class='bx bx-code-alt'></i> Habilidades</h3>
-                            
+                            <button class="section-action"><i class='bx bx-plus'></i> Añadir</button>
                         </div>
                         
                         <div class="skill-tags">
