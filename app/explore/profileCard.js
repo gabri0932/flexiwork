@@ -28,11 +28,11 @@ export async function profileCard({ profile }) {
     const card = `
         <div class="profile-card">
             <div class="profile-header">
-                <img class="profile-header" src="${profile.images.cover ?? 'https://thumbs2.imgbox.com/1e/cd/KQOchYjG_t.jpg'}" alt="">
+                <img class="profile-header" src="${profile.images.cover ?? ''}" alt="">
             </div>
             <div class="price-tag">${profile.price.currency.toUpperCase()}$${profile.price.amount}/hr</div>
             <div class="profile-body">
-                    <img class="profile-img" src="${profile.images.avatar ?? "https://thumbs2.imgbox.com/6f/6c/AvFDMxvx_t.jpg"} " alt=""> 
+                    <img class="profile-img" src="${profile.images.avatar ?? ""} " alt=""> 
                 <div class="profile-name">${profile.name}</div>
                 <div class="profile-title">${(await showProfileService(profile.service))}</div>
                 <div class="skills-container">${technologies}</div>
