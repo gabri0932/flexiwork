@@ -21,7 +21,8 @@ export default defineConfig({
         profileCreateFreelancer: resolve(__dirname, "app/profile/create/freelancer-profile/index.html"),
         profileCreateCostumer: resolve(__dirname, "app/profile/create/customer-profile/index.html"),
         profile: resolve(__dirname, "app/profile/me/index.html"),
-        profileViewUse: resolve(__dirname, 'app/profile/view_usu/index.html')
+        profileViewUse: resolve(__dirname, 'app/profile/view_usu/index.html'),
+        chat: resolve(_dirnmae, 'app/chat/index.html')
       },
     },
   },
